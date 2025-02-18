@@ -23,7 +23,7 @@ export const AuroraHero = () => {
         <motion.div style={{
             backgroundImage,
         }} className="h-screen relative bg-gray-950">
-            <div className="absolute inset-0 pt-24 flex flex-col items-center gap-2">
+            <div className="absolute z-10 inset-0 pt-24 flex flex-col items-center gap-2">
                 <h2 className="text-7xl text-gradient">
                     Wearth
                 </h2>

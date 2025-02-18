@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/molecules";
 import { AuroraHero } from "@/components/organism/hero";
-import Image from "next/image";
 
 export default function Home() {
   return (

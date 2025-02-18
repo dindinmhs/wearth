@@ -1,5 +1,5 @@
 "use client"
-import { OrbitControls, useGLTF, useAnimations, Stars } from "@react-three/drei";
+import { useGLTF, useAnimations, Stars } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from 'three';
 import { useEffect, useRef } from "react";

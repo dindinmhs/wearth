@@ -5,17 +5,16 @@ export const WordAnimate = () => {
     const jobIdxRef = useRef(0); 
     const job = ["diganti", "diulang", "diperbarui"];
     const charRandom = "!@#$%^&*():{};|,.<>/?";
-    const intervalRef = useRef<any>(null);
-    const [number, setNumber] = useState(0);
+    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [text, setText] = useState(job[jobIdxRef.current]);
-    const [pos, setPos] = useState(0); 
+    const posRef = useRef(0); 
 
     const scramble = () => {
         intervalRef.current = setInterval(() => {
-            let currentJob = job[jobIdxRef.current];
+            const currentJob = job[jobIdxRef.current];
             const scrambled = currentJob.split("")
                 .map((char, index) => {
-                    if (pos / 2 > index) {
+                    if (posRef.current / 2 > index) {
                         return char; 
                     }
 
@@ -27,12 +26,11 @@ export const WordAnimate = () => {
                 .join("");
 
             setText(scrambled); 
-            setPos((prevPos) => prevPos + 1); 
+            posRef.current += 1; 
 
-            if (pos >= currentJob.length * 4) { 
+            if (posRef.current >= currentJob.length * 4) { 
                 jobIdxRef.current = (jobIdxRef.current + 1) % job.length; 
-                setNumber(jobIdxRef.current);
-                setPos(0); 
+                posRef.current = 0; 
                 setText(job[jobIdxRef.current]); 
             }
         }, 100);
@@ -42,9 +40,9 @@ export const WordAnimate = () => {
         scramble(); 
 
         return () => {
-            clearInterval(intervalRef.current); 
+            clearInterval(intervalRef.current!); 
         };
-    }, [pos]); 
+    }, []); 
 
     return (
         <div className="w-1/2">

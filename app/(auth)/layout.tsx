@@ -1,3 +1,4 @@
+import { ShuffleGrid } from "@/components/organism"
 import React from "react"
 
 const AuthLayout = ({ children } : { children : React.ReactNode }) => { 
@@ -7,8 +8,8 @@ const AuthLayout = ({ children } : { children : React.ReactNode }) => {
                 {children}
             </div>
             <div className="w-full h-full justify-center items-center flex p-3">
-                <div className="h-full w-full bg-gradient-to-tl from-pink-200 via-blue-100 to-purple-200 rounded-md">
-                    tes
+                <div className="h-full w-full bg-gradient-to-tl from-pink-200 via-blue-100 to-purple-200 rounded-md overflow-hidden">
+                    <ShuffleGrid/>
                 </div>
             </div>
         </div>

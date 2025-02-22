@@ -1,5 +1,4 @@
-import { Navbar } from "@/components/molecules";
-import { AuroraHero } from "@/components/organism/hero";
+import { Navbar, AuroraHero } from "@/components/organism";
 
 export default function Home() {
   return (

@@ -21,7 +21,11 @@ body {
 }
 
 .bg-gradient {
-  @apply bg-gradient-to-r from-teal-400 to-blue-500;
+  @apply bg-gradient-to-r from-purple-500 to-pink-500;
+}
+
+.text-head {
+  @apply text-center text-4xl font-bold;
 }
 
 .text-gradient {

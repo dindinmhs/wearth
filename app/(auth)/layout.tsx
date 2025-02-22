@@ -6,8 +6,10 @@ const AuthLayout = ({ children } : { children : React.ReactNode }) => {
             <div>
                 {children}
             </div>
-            <div className="bg-red-200 w-full h-full justify-center items-center flex">
-                <p>ini hero</p>
+            <div className="w-full h-full justify-center items-center flex p-3">
+                <div className="h-full w-full bg-gradient-to-tl from-pink-200 via-blue-100 to-purple-200 rounded-md">
+                    tes
+                </div>
             </div>
         </div>
     )

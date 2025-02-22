@@ -5,7 +5,7 @@ const SignupPage = () => {
     return(
         <div className="w-[20rem] rounded-xl">
             <h1 className="text-center font-bold text-xl">Buat Akun</h1>
-            <Logo/>
+            <Logo color="white"/>
             <SignupForm/>
         </div>
     )

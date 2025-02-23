@@ -1,8 +1,10 @@
+import { NavbarDashboard } from "@/components/organism"
+
 const HomePage = () => { 
     return (
-        <section>
-            home
-        </section>
+        <>
+            <NavbarDashboard/>
+        </>
     )
  }
 

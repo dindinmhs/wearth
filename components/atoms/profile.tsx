@@ -27,10 +27,10 @@ export const ProfileIcon = ({ otherStyles='w-12', type, src='https://images.unsp
         )
     }
     return (
-        <div className="p-1 rounded-full hover:bg-gray-300 bg-transparent">
+        <div className="p-1 rounded-full hover:bg-gray-300 bg-transparent overflow-hidden h-12 aspect-square">
             <Image
                 src={src}
-                className={`${otherStyles} aspect-square rounded-full`}
+                className={`${otherStyles} rounded-full object-cover w-full h-full`}
                 width={200}
                 height={200}
                 alt="profile"

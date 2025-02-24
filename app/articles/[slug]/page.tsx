@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/molecules";
+import { Navbar } from "@/components/organism";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Articles } from "@/data/articles";

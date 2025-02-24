@@ -1,0 +1,1 @@
+export const fiture = ['e-commerce', 'artikel', 'mission']

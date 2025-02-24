@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Ubuntu, Sora } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const sora = Sora({
+  weight : ["400", "500", "700"],
+  subsets : ["latin"]
+})
+
+const ubuntu = Ubuntu({
+  weight : ["400", "500", "700"],
+  subsets : ["cyrillic-ext"]
+})
 
 export const metadata: Metadata = {
   title: "Wearth",
@@ -26,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ubuntu.className} antialiased bg-gray-50 dark:bg-dark duration-200 dark:text-gray-100`}
       >
         {children}
       </body>

@@ -3,13 +3,8 @@ import { useGLTF, useAnimations, Stars, useTexture } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from 'three';
 import { useEffect, useRef, useState } from "react";
-import { MotionValue } from "framer-motion";
 
-interface Props {
-  backgroundY : MotionValue<number>
-}
-
-const Earth = ({backgroundY}:Props) => {
+const Earth = () => {
     const { scene, animations } = useGLTF('/earth_d.glb');
     const { actions } = useAnimations(animations, scene);
     const mixer = useRef(new THREE.AnimationMixer(scene));
@@ -59,7 +54,7 @@ const Earth = ({backgroundY}:Props) => {
     
 }
 
-export const Model = ({backgroundY}:Props) => {
+export const Model = () => {
 
   return (
     <Canvas>
@@ -86,7 +81,7 @@ export const Model = ({backgroundY}:Props) => {
         decay={2}
         distance={100}
       />
-      <Earth backgroundY={backgroundY}/>
+      <Earth/>
       <Stars radius={50} count={1000} factor={4} fade speed={2}/>
     </Canvas>
   );

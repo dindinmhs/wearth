@@ -1,4 +1,3 @@
-import { IoPersonSharp } from "react-icons/io5";
 import { CustomButton } from "../atoms"
 import { CustomInput } from "../molecules/custom-input"
 import { IoMdMail } from "react-icons/io";

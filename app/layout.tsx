@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Ubuntu, Sora } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
-
-const sora = Sora({
-  weight : ["400", "500", "700"],
-  subsets : ["latin"]
-})
 
 const ubuntu = Ubuntu({
   weight : ["400", "500", "700"],

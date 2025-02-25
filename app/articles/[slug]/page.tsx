@@ -12,7 +12,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div className="bg-gray-950 min-h-screen">
-      <Navbar />
+      <Navbar/>
       <main className="container mx-auto px-4 py-16 max-w-4xl">
         <article className="prose prose-invert lg:prose-xl mx-auto">
           <header className="mb-12 text-center">

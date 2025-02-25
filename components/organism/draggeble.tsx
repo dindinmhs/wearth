@@ -8,7 +8,7 @@ import { useState } from 'react'
 const DRAG_BUFFER = 50
 
 export const DragSection = () => {
-    const [dragging, setDragging] = useState(false)
+    const [_dragging, setDragging] = useState(false)
     const [imgIdx, setImgIdx] = useState(0)
     const dragX = useMotionValue(0)
     const dragEnd = () => {

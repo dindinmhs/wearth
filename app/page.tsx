@@ -1,5 +1,5 @@
 import { AuroraHero } from "@/components/organism/hero";
-import { ArticleCard } from "@/components/articles/card";
+import { ArticleCard } from "@/components/articles/ArticleCard";
 import { Articles } from '@/data/articles';
 import Link from 'next/link';
 import { Navbar, SolutuinSection, TestimoniPage } from "@/components/organism";

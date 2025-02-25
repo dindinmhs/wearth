@@ -1,34 +1,82 @@
-export const Products = [
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  category: string;
+  brand: string;
+  description: string;
+  features: string[];
+  sizes: string[];
+}
+
+export const Products: Product[] = [
   {
     id: '1',
-    name: 'Eco-Friendly Cotton T-Shirt',
+    name: 'Organic Cotton Oversized T-Shirt',
     price: 299000,
-    image: '/images/article1.jpg',
-    category: 'Clothing',
-    brand: 'EcoWear'
+    image: '/images/products/Oversized.jpg',
+    category: 'T-Shirts',
+    brand: 'EcoWear',
+    description: 'Made from 100% organic cotton, this oversized t-shirt combines comfort with sustainability. The breathable fabric ensures all-day comfort while minimizing environmental impact. Each piece is crafted using water-saving techniques and natural dyes.',
+    features: [
+      'Made from 100% organic cotton',
+      'Water-saving production process',
+      'Natural dye coloring',
+      'Zero plastic packaging',
+      'Fair trade certified'
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
   },
   {
     id: '2',
-    name: 'Sustainable Denim Jeans',
+    name: 'Recycled Denim High-Waist Jeans',
     price: 599000,
-    image: '/images/article1.jpg',
-    category: 'Clothing',
-    brand: 'GreenDenim'
+    image: '/images/products/Jeans.jpg',
+    category: 'Pants',
+    brand: 'GreenDenim',
+    description: 'These high-waist jeans are crafted from recycled denim and organic cotton blend. Each pair saves approximately 1,800 gallons of water compared to traditional jean production. Features a modern cut with sustainable style.',
+    features: [
+      'Made from 80% recycled denim',
+      'Saves 1,800 gallons of water in production',
+      'Reinforced stitching for durability',
+      'Eco-friendly washing process',
+      'Biodegradable buttons and rivets'
+    ],
+    sizes: ['26', '27', '28', '29', '30', '31', '32']
   },
   {
     id: '3',
-    name: 'Bamboo Fiber Dress',
+    name: 'Bamboo Fiber Maxi Dress',
     price: 799000,
-    image: '/images/article1.jpg',
-    category: 'Clothing',
-    brand: 'NatureFashion'
+    image: '/images/products/Dress.jpg',
+    category: 'Dresses',
+    brand: 'NatureFashion',
+    description: 'This elegant maxi dress is made from sustainable bamboo fiber, known for its silky smooth texture and natural temperature regulation. Perfect for both casual and semi-formal occasions while maintaining eco-conscious style.',
+    features: [
+      'Sustainable bamboo fiber material',
+      'Natural temperature regulation',
+      'Anti-bacterial properties',
+      'UV protection',
+      'Wrinkle-resistant'
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL']
   },
   {
     id: '4',
-    name: 'Recycled Polyester Jacket',
+    name: 'Recycled Polyester Windbreaker',
     price: 899000,
-    image: '/images/article1.jpg',
+    image: '/images/products/Windbreaker.jpg',
     category: 'Outerwear',
-    brand: 'EcoWear'
+    brand: 'EcoWear',
+    description: 'A lightweight windbreaker made from recycled polyester sourced from ocean plastic. This versatile piece features water-resistant properties and packs into its own pocket, making it perfect for unpredictable weather.',
+    features: [
+      'Made from recycled ocean plastic',
+      'Water-resistant coating',
+      'Packs into pocket',
+      'Reflective details for visibility',
+      'Breathable mesh lining'
+    ],
+    sizes: ['S', 'M', 'L', 'XL']
   }
 ];

@@ -12,8 +12,12 @@ export const DropDown = ({ trigger, children, otherStyles='w-40 -translate-x-24'
     const dropdownRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        const handleClickOutside = (event:any) => {
-          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        const handleClickOutside = (event:globalThis.MouseEvent) => {
+          if (
+            dropdownRef.current &&
+            event.target instanceof Node && 
+            !dropdownRef.current.contains(event.target)
+          ) {
             setIsOpen(false);
           }
         };

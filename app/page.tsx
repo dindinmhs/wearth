@@ -1,5 +1,5 @@
 import { AuroraHero } from "@/components/organism/hero";
-import { Navbar, SolutuinSection, TestimoniPage } from "@/components/organism";
+import { Navbar, ProblemSection, SolutuinSection, TestimoniPage } from "@/components/organism";
 import { FooterSection } from "@/components/organism/footer";
 
 
@@ -8,9 +8,7 @@ export default function Home() {
     <div className="bg-gray-950">
       <Navbar/>
       <AuroraHero/>
-      <div className="h-screen">
-
-      </div>
+      <ProblemSection/>
       <SolutuinSection/>
       <TestimoniPage/>
       <FooterSection/>

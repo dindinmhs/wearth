@@ -1,15 +1,13 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 interface ArticleCardProps {
   title: string
   description: string
   image: string
   date: string
-  slug: string
 }
 
-export const ArticleCard = ({ title, description, image, date, slug }: ArticleCardProps) => {
+export const ArticleCard = ({ title, description, image, date }: ArticleCardProps) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
       <div className="relative h-72">

@@ -3,6 +3,7 @@
 import { problemData } from "@/data";
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react";
+import { ChartProblem } from "../molecules";
 
 export const ProblemSection = () => {
     const [isVisible, setVisible] = useState(0)
@@ -10,8 +11,9 @@ export const ProblemSection = () => {
     useEffect(()=>{
         console.log(isVisible)
     }, [isVisible])
+    
     return (
-        <section className="grid grid-cols-2">
+        <section className="grid grid-cols-2 gap-12">
             <div>
                 {problemData.map((data, i)=>(
                     <motion.div
@@ -28,7 +30,7 @@ export const ProblemSection = () => {
                 <div className="sticky top-0 h-screen flex items-center justify-center text-white">
                     {
                         isVisible == 0?
-                        <p>ini 1</p>:
+                        <ChartProblem/>:
                         isVisible == 1?
                         <p>ini 2</p>:
                         isVisible == 2?

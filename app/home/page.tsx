@@ -1,4 +1,4 @@
-import { DragSection, NavbarDashboard } from "@/components/organism"
+import { DragSection, HeroSection, NavbarDashboard } from "@/components/organism"
 import { ArticleCard } from "@/components/articles/ArticleCard";
 import { ProductCard } from "@/components/products/ProductCard";
 import { Articles } from '@/data/articles';
@@ -10,8 +10,7 @@ const HomePage = () => {
         <>
             <NavbarDashboard/>
             <main className="pt-20 w-11/12 mx-auto"> 
-                <DragSection/>
-                
+                <HeroSection/>
                 {/* Products Section */}
                 <div className="container mx-auto px-4 py-16">
                     <div className="mb-8">

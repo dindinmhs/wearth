@@ -4,6 +4,7 @@ import { imagesBanner } from '@/data'
 import { motion, useMotionValue } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
+import { SquareButton } from '../atoms'
 
 const DRAG_BUFFER = 50
 
@@ -21,7 +22,7 @@ export const DragSection = () => {
         }
     }
     return (
-        <div>
+        <div className='relative'>
             <div className="overflow-hidden rounded-lg">
                 <motion.div 
                     className="flex cursor-grab active:cursor-grabbing" 
@@ -45,14 +46,15 @@ export const DragSection = () => {
                         ))}
                 </motion.div>
             </div>
-            <div className="flex gap-x-2 w-fit mx-auto my-6">
+            <SquareButton otherStyle='absolute left-2 bottom-2' title='EXPLORE' type='dark' icon/>
+            {/* <div className="flex gap-x-2 w-fit mx-auto my-6 absolute bottom-3">
                 {imagesBanner.map((data, idx:number) => (
                     <button 
                         key={idx} 
                         onClick={()=>setImgIdx(idx)} 
                         className={`${imgIdx === idx ? "dark:bg-neutral-200 bg-gray-700" : "dark:bg-neutral-500 bg-gray-400"} w-2 h-2 rounded-full`}/>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

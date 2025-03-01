@@ -1,0 +1,1 @@
+export const forestGreen = '#2C6E49'

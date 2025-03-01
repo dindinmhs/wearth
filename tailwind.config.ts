@@ -1,4 +1,5 @@
 import { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
   darkMode : "class",
@@ -12,7 +13,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "dark" : "#23272f"
+        "dark" : "#23272f",
+        "forest" : "#2C6E49"
+      },
+      fontFamily: {
+        montserrat: ["var(--font-montserrat)", ...fontFamily.sans],
+        inter: ["var(--font-inter)", ...fontFamily.sans],
       },
     },
   },

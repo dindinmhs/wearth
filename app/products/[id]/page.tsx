@@ -79,9 +79,14 @@ export default function ProductDetail({ params }: ProductPageProps) {
               </div>
 
               {/* Add to Cart Button */}
-              <button className="bg-green-600 text-white py-4 px-8 rounded-lg font-medium hover:bg-green-700 transition-colors mb-6">
-                Add to Cart
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                <button className="flex-1 bg-green-600 text-white py-4 px-8 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                  Add to Cart
+                </button>
+                <button className="flex-1 border-2 border-green-600 text-green-600 py-4 px-8 rounded-lg font-medium hover:bg-green-50 transition-colors">
+                  Make an Offer
+                </button>
+              </div>
 
               {/* Product Description */}
               <div className="border-t border-gray-200 pt-6">

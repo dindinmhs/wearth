@@ -7,7 +7,6 @@ import { notFound } from "next/navigation";
 import { IoLocationOutline, IoCallOutline } from "react-icons/io5";
 import { BsCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
-import { useState } from "react";
 
 interface TradeDetailProps {
   params: {
@@ -17,7 +16,6 @@ interface TradeDetailProps {
 
 export default function TradeDetail({ params }: TradeDetailProps) {
   const trade = TradeItems.find((t) => t.id === params.id);
-  const [showContact, setShowContact] = useState(false);
 
   if (!trade) {
     notFound();

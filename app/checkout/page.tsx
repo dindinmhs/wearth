@@ -7,7 +7,6 @@ import { IoLocationOutline } from "react-icons/io5";
 import { BsTruck } from "react-icons/bs";
 
 export default function CheckoutPage() {
-  const totalItems = CartItems.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = CartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const shippingFee = 15000;
   const total = subtotal + shippingFee;

@@ -106,11 +106,11 @@ const heroData = [
     {
         title : 'Sustainable Fashion, Your Way.',
         description : 'Buy, swap, and discover eco-friendly fashion that suits your style.',
-        image : '/images/hero/outfit.png'
+        image : 'https://res.cloudinary.com/dokktqvdq/image/upload/v1740878103/download-removebg-preview_awpqth.png'
     },
     {
         title : 'Learn & Take Action for a Greener Future.',
         description : 'Read insightful articles about textile waste, eco-friendly materials, and how you can make a difference.',
-        image : '/images/hero/recycle.png'
+        image : 'https://res.cloudinary.com/dokktqvdq/image/upload/v1740878084/Smartrac_Is_Bringing_Green_RFID_Tags_to_Market-removebg-preview_emvyxe.png'
     },
 ]

@@ -23,14 +23,27 @@ export default function ProductDetail({ params }: ProductPageProps) {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Product Image */}
-            <div className="relative h-[600px] rounded-lg overflow-hidden">
+            <div className="relative h-screen rounded-lg overflow-hidden">
               <Image
-                src={product.image}
+                src={product.images[0]}
                 alt={product.name}
-                fill
-                className="object-cover"
+                width={700}
+                height={700}
+                className="object-cover h-1/2 w-full"
                 priority
               />
+              <div className='flex gap-2'>
+                {product.images.map((uri, i)=>(
+                  <Image
+                  src={uri}
+                  alt={product.name}
+                  width={200}
+                  height={200}
+                  key={i}
+                  className="object-cover w-32 aspect-square"
+                />
+                ))}
+              </div>
               <div className="absolute top-4 left-4">
                 <span className="bg-black bg-opacity-70 text-white text-sm px-4 py-2 rounded-full">
                   {product.category}

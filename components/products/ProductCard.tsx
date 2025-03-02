@@ -1,20 +1,12 @@
+import { ProductType } from '@/types';
 import Image from 'next/image';
 
-interface ProductCardProps {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-  brand?: string;
-}
-
-export const ProductCard = ({ name, price, image, category, brand }: ProductCardProps) => {
+export const ProductCard = ({ name, price, images, category, brand }: ProductType) => {
   return (
-    <div className="bg-white rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
+    <div className="rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
       <div className="relative h-72">
         <Image
-          src={image}
+          src={images[0]}
           alt={name}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"

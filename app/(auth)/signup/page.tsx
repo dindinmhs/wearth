@@ -6,7 +6,7 @@ import { FaGoogle } from "react-icons/fa6"
 const SignupPage = () => {
     return(
         <div className="w-[20rem] rounded-xl flex flex-col gap-3">
-            <Logo otherStyles="mx-auto" type="word" color="black"/>
+            <Logo otherStyles="mx-auto" type="word"/>
             <h1 className="text-center font-bold text-xl">Buat Akun</h1>
             <Link href={`home`} className="border-2 border-black rounded-full">
                 <div className="flex items-center gap-2 justify-center py-2">

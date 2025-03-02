@@ -7,13 +7,13 @@ import { useMotionValue, motion, animate } from "framer-motion"
 import { useEffect } from "react"
 
 export const TestimoniPage = () => {
-    let [ref, {width}] = useMeasure()
+    const [ref, {width}] = useMeasure()
 
     const xTranslation = useMotionValue(0)
 
     useEffect(()=>{
-        let controls;
-        let finalPotions = -width / 2 - 5
+        let controls = null;
+        const finalPotions = -width / 2 - 5
 
         controls = animate(xTranslation, [0, finalPotions], {
             ease : "linear",

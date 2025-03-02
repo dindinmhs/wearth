@@ -9,7 +9,7 @@ import { SquareButton } from '../atoms'
 const DRAG_BUFFER = 50
 
 export const DragSection = () => {
-    const [_dragging, setDragging] = useState(false)
+    const setDragging = useState(false)[1]
     const [imgIdx, setImgIdx] = useState(0)
     const dragX = useMotionValue(0)
     const dragEnd = () => {

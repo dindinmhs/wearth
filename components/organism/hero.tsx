@@ -39,8 +39,8 @@ export const HeroSection = () => {
     }, []);
 
     return (
-        <div className="grid grid-cols-2 h-[400px] items-center">
-            <div className="h-full flex flex-col">
+        <div className="grid md:grid-cols-2 grid-cols-1 items-center">
+            <div className="flex flex-col h-fit gap-2 md:h-[400px]">
                 <div className="w-[100px] flex gap-2 p-2">
                     {heroData.map((_, i) => (
                         <div 
@@ -70,27 +70,34 @@ export const HeroSection = () => {
                         <p className="mt-2 text-gray-600 lg:text-xl text-base">{heroData[index].description}</p>
                     </motion.div>
                 </AnimatePresence>
-                <SquareButton icon title="EXPLORE" type="dark"/>
+                <div className="hidden md:block">
+                    <SquareButton icon title="EXPLORE" type="dark"/>
+                </div>
             </div>
-
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={index} 
-                    initial={{ opacity: 0, x: 50 }} 
-                    animate={{ opacity: 1, x: 0 }} 
-                    exit={{ opacity: 0, x: 50 }} 
-                    transition={{ duration: 1.2 }}
-                    className="w-full h-full flex justify-center items-center"
-                >
-                    <Image 
-                        alt={heroData[index].title} 
-                        src={heroData[index].image} 
-                        width={200} 
-                        height={200} 
-                        className="w-[400px] h-[400px] object-cover rounded-xl"
-                    />
-                </motion.div>
-            </AnimatePresence>
+            <div>
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={index} 
+                        initial={{ opacity: 0, x: 50 }} 
+                        animate={{ opacity: 1, x: 0 }} 
+                        exit={{ opacity: 0, x: 50 }} 
+                        transition={{ duration: 1.2 }}
+                        className="w-full h-full flex justify-center items-center"
+                    >
+                        <Image 
+                            alt={heroData[index].title} 
+                            src={heroData[index].image} 
+                            width={500} 
+                            height={500}
+                            priority 
+                            className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] object-cover"
+                        />
+                    </motion.div>
+                </AnimatePresence>
+                <div className="block md:hidden">
+                    <SquareButton icon title="EXPLORE" type="dark"/>
+                </div>
+            </div>
         </div>
     );
 }
@@ -99,11 +106,11 @@ const heroData = [
     {
         title : 'Sustainable Fashion, Your Way.',
         description : 'Buy, swap, and discover eco-friendly fashion that suits your style.',
-        image : 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg'
+        image : '/images/hero/outfit.png'
     },
     {
         title : 'Learn & Take Action for a Greener Future.',
         description : 'Read insightful articles about textile waste, eco-friendly materials, and how you can make a difference.',
-        image : 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1440&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg'
+        image : '/images/hero/recycle.png'
     },
 ]

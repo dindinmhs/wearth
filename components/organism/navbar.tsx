@@ -16,7 +16,7 @@ import { useEffect, useRef } from 'react';
 export const Navbar = () => {
     return (
         <header className="absolute left-0 right-0 z-20 flex px-10 py-3 justify-between items-center">
-            <Logo type="word"/>
+            <Logo type="word" otherStyles=""/>
             <div className="flex gap-2">
                 <CustomButton variant="border" href="/signup" title="Daftar"/>
                 <CustomButton href="/signin" title="Masuk"/>
@@ -66,8 +66,8 @@ export const NavbarDashboard = () => {
 
     return (
         <header className="fixed left-0 right-0 z-20 flex px-10 py-2 justify-between h-16 items-center gap-6 bg-gray-50">
-            <Link className="hidden sm:block" href={'/'}><Logo type="word"/></Link>
-            <Link className="sm:hidden block" href={'/'}><Logo type="icon"/></Link>
+            <Link className="hidden sm:block" href={'/'}><Logo type="word" otherStyles=""/></Link>
+            <Link className="sm:hidden block" href={'/'}><Logo type="icon" otherStyles=""/></Link>
             <SearchInput/>
             <div className="md:flex gap-2 w-fit h-full items-center hidden">
                 <div className="relative" ref={cartRef}>
@@ -204,7 +204,13 @@ export const NavbarDashboard = () => {
                     )}
                 </div>
                 {/* <Notify icon={<AiOutlineSwap className="w-full h-full"/>} activeIcon={<AiOutlineSwap color={forestGreen} className="w-full h-full"/>} counter={2}/> */}
-                <Notify icon={<IoChatboxEllipsesOutline className="w-full h-full"/>} activeIcon={<IoChatboxEllipses color={forestGreen} className="w-full h-full"/>} counter={2}/>
+                <Link href="/chat">
+                    <Notify 
+                        icon={<IoChatboxEllipsesOutline className="w-full h-full"/>} 
+                        activeIcon={<IoChatboxEllipses color={forestGreen} className="w-full h-full"/>} 
+                        counter={2}
+                    />
+                </Link>
                 <ProfileDropdown/>
             </div>
         </header>

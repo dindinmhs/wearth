@@ -1,7 +1,9 @@
+"use client"
 import { Products } from '@/data/products';
 import Image from 'next/image';
 import { NavbarDashboard } from '@/components/organism';
 import { notFound } from 'next/navigation';
+import { useState } from 'react';
 
 interface ProductPageProps {
   params: {
@@ -12,9 +14,13 @@ interface ProductPageProps {
 export default function ProductDetail({ params }: ProductPageProps) {
   const product = Products.find((p) => p.id === params.id);
 
+  const [isActive, setActive] = useState(0)
+
   if (!product) {
     notFound();
   }
+
+
 
   return (
     <>
@@ -22,32 +28,40 @@ export default function ProductDetail({ params }: ProductPageProps) {
       <main className="pt-24 pb-16 w-11/12 mx-auto">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Product Image */}
-            <div className="relative h-screen rounded-lg overflow-hidden">
-              <Image
-                src={product.images[0]}
-                alt={product.name}
-                width={700}
-                height={700}
-                className="object-cover h-1/2 w-full"
-                priority
-              />
-              <div className='flex gap-2'>
-                {product.images.map((uri, i)=>(
+            {/* Product Image (Sticky) */}
+            <div className="relative h-[100vh]">
+              <div className="sticky top-24 flex flex-col">
+                {/* Foto Utama */}
+                <div className="relative h-[75vh]">
                   <Image
-                  src={uri}
-                  alt={product.name}
-                  width={200}
-                  height={200}
-                  key={i}
-                  className="object-cover w-32 aspect-square"
-                />
-                ))}
-              </div>
-              <div className="absolute top-4 left-4">
-                <span className="bg-black bg-opacity-70 text-white text-sm px-4 py-2 rounded-full">
-                  {product.category}
-                </span>
+                    src={product.images[isActive]}
+                    alt={product.name}
+                    width={700}
+                    height={700}
+                    className="object-cover w-full h-full"
+                    priority
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-black bg-opacity-70 text-white text-sm px-4 py-2 rounded-full">
+                      {product.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Baris Foto Kecil (Secara Horizontal) */}
+                <div className="flex gap-2 overflow-x-auto p-2">
+                  {product.images.map((uri, i) => (
+                    <button key={i} onClick={()=>setActive(i)}>
+                      <Image
+                        src={uri}
+                        alt={product.name}
+                        width={100}
+                        height={100}
+                        className={`object-cover w-24 h-24 rounded-lg ${isActive === i ? 'border-forest' : 'border-transparent'} border-[1px]`}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 

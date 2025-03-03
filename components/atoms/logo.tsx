@@ -2,7 +2,7 @@ import { forestGreen } from "@/color";
 
 interface Props {
     type : 'icon' | 'word';
-    otherStyles : string;
+    otherStyles? : string;
 }
 
 export const Logo = ({ type, otherStyles } :  Props) => {

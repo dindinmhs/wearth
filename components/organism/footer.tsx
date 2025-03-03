@@ -8,7 +8,7 @@ export const FooterSection = () => {
             <footer className="max-w-[80%] mx-auto">
                 <div className="flex justify-around flex-wrap">
                     <div>
-                        <Logo type="word" color="black"/>
+                        <Logo type="word"/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <h3 className="font-bold">Fitur</h3>

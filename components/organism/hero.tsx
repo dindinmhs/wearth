@@ -39,7 +39,7 @@ export const HeroSection = () => {
     }, []);
 
     return (
-        <div className="grid md:grid-cols-2 grid-cols-1 items-center">
+        <div className="grid md:grid-cols-2 grid-cols-1 items-center overflow-hidden">
             <div className="flex flex-col h-fit gap-2 md:h-[400px]">
                 <div className="w-[100px] flex gap-2 p-2">
                     {heroData.map((_, i) => (

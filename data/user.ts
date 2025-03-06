@@ -34,7 +34,6 @@ export const userData: {
   joinDate: string;
   stats: UserStats;
   saleItems: UserItem[];
-  tradeItems: UserItem[];
 } = {
   id: "user1",
   name: "Sarah Green",
@@ -91,36 +90,4 @@ export const userData: {
       createdAt: "2024-02-15"
     }
   ],
-  tradeItems: [
-    {
-      id: "t1",
-      name: "501 Original Jeans",
-      image: "/images/products/Oversized.jpg",
-      category: "Fashion",
-      brand: "Levi's",
-      description: "Classic Levi's 501 jeans in dark wash. Perfect condition. Size 32/32.",
-      status: "active",
-      createdAt: "2024-02-15"
-    },
-    {
-      id: "t2",
-      name: "Oversized T-shirt Collection",
-      image: "/images/products/Oversized.jpg",
-      category: "Fashion",
-      brand: "Uniqlo",
-      description: "Set of 3 Uniqlo U oversized t-shirts. Colors: white, black, navy. Size L.",
-      status: "pending",
-      createdAt: "2024-02-10"
-    },
-    {
-      id: "t3",
-      name: "Classic Blazer",
-      image: "/images/products/Oversized.jpg",
-      category: "Fashion",
-      brand: "Zara",
-      description: "Elegant black blazer from Zara. Worn once for an event. Size M.",
-      status: "active",
-      createdAt: "2024-02-05"
-    }
-  ]
 };

@@ -81,131 +81,99 @@ export default function Profile() {
               </div>
             </div>
           </div>
-
           {/* Statistics Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {/* Trade Statistics */}
-            <div className="bg-white p-6 rounded-xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
-                  <FaExchangeAlt className="text-xl text-green-600" />
-                </div>
-                <h3 className="text-lg font-semibold">Trade Statistics</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <StatCard label="Total Trades" value={userData.stats.totalTrades} color="green" />
-                <StatCard label="Successful" value={userData.stats.successTrades} color="green" />
-                <StatCard label="Pending" value={userData.stats.pendingTrades} color="yellow" />
-                <StatCard label="Rejected" value={userData.stats.rejectedTrades} color="red" />
-              </div>
+          <div className="bg-white p-6 rounded-xl mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-semibold text-gray-800">Overview</h2>
+              <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-xl hover:from-green-700 hover:to-green-600 transition-all duration-200 shadow-sm hover:shadow group">
+                <BsBoxSeam className="text-xl group-hover:scale-110 transition-transform" />
+                <span>Add New Item</span>
+              </button>
             </div>
-
-            {/* Sales Statistics */}
-            <div className="bg-white p-6 rounded-xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                  <BsBoxSeam className="text-xl text-blue-600" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Trade Stats */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                    <FaExchangeAlt className="text-xl text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Trade Statistics</h3>
                 </div>
-                <h3 className="text-lg font-semibold">Sales Statistics</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <StatCard label="Total Trades" value={userData.stats.totalTrades} color="green" />
+                  <StatCard label="Successful" value={userData.stats.successTrades} color="green" />
+                  <StatCard label="Pending" value={userData.stats.pendingTrades} color="yellow" />
+                  <StatCard label="Rejected" value={userData.stats.rejectedTrades} color="red" />
+                </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <StatCard label="Total Sales" value={userData.stats.totalSales} color="blue" />
-                <StatCard label="Completed" value={userData.stats.completedSales} color="blue" />
-                <StatCard label="Active" value={userData.stats.activeSales} color="blue" />
-                <StatCard label="Earnings" value={userData.stats.totalEarnings} color="blue" isText />
+              
+              {/* Sales Stats */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <BsBoxSeam className="text-xl text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Sales Statistics</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <StatCard label="Total Sales" value={userData.stats.totalSales} color="blue" />
+                  <StatCard label="Completed" value={userData.stats.completedSales} color="blue" />
+                  <StatCard label="Active" value={userData.stats.activeSales} color="blue" />
+                  <StatCard label="Earnings" value={userData.stats.totalEarnings} color="blue" isText />
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Add Item Button */}
-          <div className="flex justify-end gap-4 mb-8">
-            <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2">
-              <FaExchangeAlt className="text-xl" />
-              Add New Item
-            </button>
-          </div>
-
           {/* Sale Items Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {userData.saleItems.map((item) => (
-              <div key={item.id} className="rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
-                <div className="relative h-72">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full">
-                      {item.category}
-                    </span>
+          <div className="mb-12">
+            <div className="flex items-center justify-between mb-8">
+              <div className="space-y-1">
+                <h2 className="text-2xl font-semibold text-gray-800">Your Store Items</h2>
+                <p className="text-sm text-gray-500">Manage and track your listed products</p>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {userData.saleItems.map((item) => (
+                <div key={item.id} className="rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
+                  <div className="relative h-72">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full">
+                        {item.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-4">
-                  <p className="text-gray-500 text-sm mb-1">{item.brand}</p>
-                  <h3 className="text-gray-900 font-medium mb-2">
-                    {item.name}
-                  </h3>
-                  {/* <p className="text-gray-500 text-sm mb-3 line-clamp-2">{item.description}</p> */}
-                  <p className="text-gray-900 font-bold mb-3">{item.price}</p>
-                  <div className="flex justify-between items-center pt-3 border-t">
-                    <span className="text-xs text-gray-500">
-                      {new Date(item.createdAt).toLocaleDateString()}
-                    </span>
-                    <div className="flex gap-2">
-                      <button className="px-3 py-1.5 text-sm text-blue-600 hover:bg-blue-50 rounded-lg">
-                        Edit
-                      </button>
-                      <button className="px-3 py-1.5 text-sm text-red-600 hover:bg-red-50 rounded-lg">
-                        Delete
-                      </button>
+                  <div className="p-4">
+                    <p className="text-gray-500 text-sm mb-1">{item.brand}</p>
+                    <h3 className="text-gray-900 font-medium mb-2">
+                      {item.name}
+                    </h3>
+                    {/* <p className="text-gray-500 text-sm mb-3 line-clamp-2">{item.description}</p> */}
+                    <p className="text-gray-900 font-bold mb-3">{item.price}</p>
+                    <div className="flex justify-between items-center pt-3 border-t">
+                      <span className="text-xs text-gray-500">
+                        {new Date(item.createdAt).toLocaleDateString()}
+                      </span>
+                      <div className="flex gap-2">
+                        <button className="px-3 py-1.5 text-sm text-blue-600 hover:bg-blue-50 rounded-lg">
+                          Edit
+                        </button>
+                        <button className="px-3 py-1.5 text-sm text-red-600 hover:bg-red-50 rounded-lg">
+                          Delete
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Trade Items Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {userData.tradeItems.map((item) => (
-              <div key={item.id} className="rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
-                <div className="relative h-72">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full">
-                      {item.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <p className="text-gray-500 text-sm mb-1">{item.brand}</p>
-                  <h3 className="text-gray-900 font-medium mb-2">
-                    {item.name}
-                  </h3>
-                  {/* <p className="text-gray-500 text-sm mb-3 line-clamp-2">{item.description}</p> */}
-                  <div className="flex justify-between items-center pt-3 border-t">
-                    <span className="text-xs text-gray-500">
-                      {new Date(item.createdAt).toLocaleDateString()}
-                    </span>
-                    <div className="flex gap-2">
-                      <button className="px-3 py-1.5 text-sm text-green-600 hover:bg-green-50 rounded-lg">
-                        Edit
-                      </button>
-                      <button className="px-3 py-1.5 text-sm text-red-600 hover:bg-red-50 rounded-lg">
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </main>

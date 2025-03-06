@@ -7,6 +7,7 @@ import { MdLogout } from "react-icons/md";
 // import useAuthStore from "@/hooks/authStore";
 import { useRouter } from "next/navigation";
 import { DropDown } from "../molecules";
+import { useState } from "react";
 
 interface Props {
     otherStyles? : string;
@@ -40,6 +41,7 @@ export const ProfileIcon = ({ otherStyles='w-12', type, src='https://images.unsp
 }
 
 export const ProfileDropdown = () => {
+    const [isOpen, setOpen] = useState(false)
     const router = useRouter()
     // const {clearUser} = useAuthStore()
 
@@ -49,7 +51,7 @@ export const ProfileDropdown = () => {
      }
 
     return (
-        <DropDown trigger={<ProfileIcon type="default"/>}>
+        <DropDown isOpen={isOpen} setOpen={setOpen} trigger={<ProfileIcon type="default"/>}>
             <Link href={'/profile'} className="flex gap-2 hover:bg-gray-200 px-3 py-2 items-center">
                 <IoMdPerson size={25}/>
                 <p>Profile</p>

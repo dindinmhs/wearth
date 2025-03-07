@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { DropDown } from "../molecules";
@@ -8,35 +7,34 @@ import { IconType } from "react-icons";
 
 interface Props {
     title : string;
-    href : string;
     variant? : 'default' | 'border';
     otherStyles? : string;
-    textColor? : string
+    textColor? : string;
+    handleClick : ()=>void;
 }
 
-export const CustomButton = ({ title, href, otherStyles, variant='default', textColor } : Props) => {
+export const CustomButton = ({ title,  otherStyles, variant='default', textColor, handleClick } : Props) => {
     if (variant === 'default') {
         return (
-            <Link 
-            className={`bg-gradient rounded-full font-bold px-4 py-2 text-xl h-fit text-gray-950`}
-            href={href}>
+            <button
+            onClick={handleClick} 
+            className={`bg-gradient rounded-full font-bold px-4 py-2 text-xl h-fit text-gray-950`}>
                 <div style={{ color : textColor }} className="text-center mx-auto">
                     {title}
                 </div>
-            </Link>
+            </button>
         )
     }
     if (variant === 'border') {
         return (
-            <Link 
-            className={`rounded-full font-bold p-1 bg-gradient text-xl h-fit ${otherStyles}`}
-            href={href}>
+            <button 
+            className={`rounded-full font-bold p-1 bg-gradient text-xl h-fit ${otherStyles}`}>
                 <div className="bg-gray-950 px-4 py-2 rounded-full">
                     <div className="text-center text-gradient w-full">
                     {title}
                     </div>
                 </div>
-            </Link>
+            </button>
         )
     }
 }

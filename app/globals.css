@@ -39,7 +39,7 @@ body {
 }
 
 .btn {
-  @apply flex gap-3 px-4 py-2 border-2 bg-forest rounded-md items-center justify-center font-bold text-lg text-white;
+  @apply flex gap-3 px-4 py-2 bg-forest rounded-md items-center justify-center font-bold text-lg text-white;
 }
 
 .text-head {

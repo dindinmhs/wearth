@@ -52,7 +52,7 @@ export const HeroSection = () => {
                                 initial={{ width: 0 }}
                                 animate={{ width: i === index ? `${progress}%` : "100%" }}
                                 transition={{ duration: i === index ? 0.1 : 0 }}
-                                className={`h-full ${i === index ? "bg-forest" : "bg-gray-400"}`}
+                                className={`h-full ${i <= index ? "bg-forest" : "bg-gray-400"}`}
                             />
                         </div>
                     ))}

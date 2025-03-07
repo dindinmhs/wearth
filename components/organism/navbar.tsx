@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from 'react'
-import { CustomButton, Logo, Notify, ProfileDropdown } from "../atoms"
-import { SearchInput } from "../molecules"
+import { Logo, Notify, ProfileDropdown } from "../atoms"
+import { SearchInput, SpringModal } from "../molecules"
 import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoHome, IoHomeOutline } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
 import { forestGreen } from "@/color"
@@ -12,25 +12,18 @@ import { CartItems } from '@/data/cart'
 import { TradeItems } from '@/data/trade'
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-
-export const Navbar = () => {
-    return (
-        <header className="absolute left-0 right-0 z-20 flex px-10 py-3 justify-between items-center">
-            <Logo type="word" otherStyles=""/>
-            <div className="flex gap-2">
-                <CustomButton variant="border" href="/signup" title="Daftar"/>
-                <CustomButton href="/signin" title="Masuk"/>
-            </div>
-        </header>
-    )
-}
+import { useAuthStore } from '@/store/useAuthStore'
+import { SignupForm } from './signup-form'
+import { SigninForm } from './signin-form'
 
 export const NavbarDashboard = () => {
     const router = useRouter();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState<number|null>(null);
     const [isTradeOpen, setIsTradeOpen] = useState(false);
     const cartRef = useRef<HTMLDivElement>(null);
     const tradeRef = useRef<HTMLDivElement>(null);
+    const { isAuthenticated } = useAuthStore()
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -69,7 +62,13 @@ export const NavbarDashboard = () => {
             <Link className="hidden sm:block" href={'/'}><Logo type="word" otherStyles=""/></Link>
             <Link className="sm:hidden block" href={'/'}><Logo type="icon" otherStyles=""/></Link>
             <SearchInput/>
-            <div className="md:flex gap-2 w-fit h-full items-center hidden">
+            {!isAuthenticated && <div className='md:flex gap-2 w-fit h-full items-center hidden'>
+                <button onClick={()=>setModalOpen(0)} className='text-nowrap btn-icon py-0 h-full'>Sign Up</button>
+                <button onClick={()=>setModalOpen(1)} className='text-nowrap btn py-0 h-full'>Sign In</button>
+                <SpringModal isOpen={modalOpen==0} setIsOpen={setModalOpen}><div><SignupForm setOpen={setModalOpen}/></div></SpringModal>
+                <SpringModal isOpen={modalOpen==1} setIsOpen={setModalOpen}><div><SigninForm setOpen={setModalOpen}/></div></SpringModal>
+            </div>}
+            {isAuthenticated && <div className="md:flex gap-2 w-fit h-full items-center hidden">
                 <div className="relative" ref={cartRef}>
                     <button 
                         onClick={handleCartClick}
@@ -212,7 +211,7 @@ export const NavbarDashboard = () => {
                     />
                 </Link>
                 <ProfileDropdown/>
-            </div>
+            </div>}
         </header>
     )
 }

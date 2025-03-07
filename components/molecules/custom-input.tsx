@@ -21,7 +21,7 @@ export const CustomInput = ({ type, icon, ...otherProps }: Props) => {
                 </div>
                 <input 
                     type={type}
-                    className="focus:outline-none text-lg"
+                    className="focus:outline-none text-lg bg-transparent"
                     {...otherProps}
                 />
             </div>
@@ -35,7 +35,7 @@ export const CustomInput = ({ type, icon, ...otherProps }: Props) => {
                 </div>
                 <input 
                     type={isHide?"password":"text"}
-                    className="focus:outline-none text-lg flex-grow"
+                    className="focus:outline-none text-lg flex-grow bg-transparent"
                     {...otherProps}
                 />
                 <button className="flex-shrink-0" type="button" onClick={()=>setHide(!isHide)}>

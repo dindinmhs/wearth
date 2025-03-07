@@ -1,4 +1,4 @@
-import { HeroSection, NavbarDashboard, NavbarMobile } from "@/components/organism"
+import { HeroSection, NavbarDashboard, NavbarMobile, ReviewSection } from "@/components/organism"
 import { ArticleCard } from "@/components/articles/ArticleCard";
 import { ProductCard } from "@/components/products/ProductCard";
 import { Articles } from '@/data/articles';
@@ -46,6 +46,7 @@ const HomePage = () => {
                         ))}
                     </div>
                 </div>
+                <ReviewSection/>
             </main>
         </>
     )

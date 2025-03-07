@@ -1,47 +1,91 @@
 "use client"
 
-import { testimoniData } from "@/data"
-import { CardTestiominal } from "../molecules"
-import useMeasure from "react-use-measure"
-import { useMotionValue, motion, animate } from "framer-motion"
-import { useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
 
-export const TestimoniPage = () => {
-    const [ref, {width}] = useMeasure()
+const SLIDE_DURATION = 10000;
 
-    const xTranslation = useMotionValue(0)
+export const ReviewSection = () => {
+    const [index, setIndex] = useState(0);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    useEffect(()=>{
-        let controls = null;
-        const finalPotions = -width / 2 - 5
+    const resetTimer = (newIndex: number) => {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        setIndex(newIndex);
 
-        controls = animate(xTranslation, [0, finalPotions], {
-            ease : "linear",
-            duration : 25,
-            repeat : Infinity,
-            repeatType : "loop",
-            repeatDelay : 0
-        })
+        intervalRef.current = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex + 1) % heroData.length);
+        }, SLIDE_DURATION);
+    };
 
-        return controls.stop
-    },[xTranslation, width])
+    useEffect(() => {
+        resetTimer(0);
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, []);
 
     return (
-        <section className="bg-gray-100 py-10">
-            <h3 className="text-head">Testimonials</h3>
-            <p className="text-center w-1/2 mx-auto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores excepturi eaque cumque at, sequi molestiae iure! Debitis totam alias atque delectus expedita nam, iure asperiores, maiores odit corporis eligendi optio.</p>
-            <div className="flex overflow-hidden">
-                <motion.div ref={ref} style={{ x : xTranslation }} className="flex gap-4">
-                    {[...testimoniData, ...testimoniData].map((item, idx)=>(
-                        <CardTestiominal
-                            key={idx}
-                            name={item.name}
-                            comment={item.comment}
-                            src={item.src}
-                        />
+        <div className="grid md:grid-cols-2 grid-cols-1 items-center overflow-hidden">
+            {/* Bagian Teks */}
+            <div className="flex flex-col h-fit gap-2 md:h-[400px]">
+                <div className="flex flex-col gap-3 flex-1 justify-center">
+                    <h1 className="text-3xl lg:text-6xl font-bold">{heroData[index].title}</h1>
+                    <p className="mt-2 text-gray-600 lg:text-xl text-base">{heroData[index].description}</p>
+                </div>
+                {/* Progress Indicator */}
+                <div className="w-[100px] flex gap-2 p-2">
+                    {heroData.map((_, i) => (
+                        <div 
+                            key={i} 
+                            onClick={() => resetTimer(i)}
+                            className="w-full h-1 bg-gray-300 cursor-pointer rounded-lg relative overflow-hidden"
+                        >
+                            <motion.div 
+                                animate={{ width: i === index ? "100%" : "0%" }}
+                                transition={{ duration: SLIDE_DURATION / 1000 }}
+                                className={`h-full ${i <= index ? "bg-forest" : "bg-gray-400"}`}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Bagian Gambar dengan Horizontal Scroll */}
+            <div className="relative w-full h-full flex justify-center items-center overflow-hidden">
+                <motion.div 
+                    animate={{ x: `-${index * 100}%` }} 
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="flex w-full"
+                >
+                    {heroData.map((data, i) => (
+                        <div key={i} className="w-full flex justify-center items-center flex-shrink-0">
+                            <Image 
+                                alt={data.title} 
+                                src={data.image} 
+                                width={500} 
+                                height={500}
+                                priority 
+                                className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] object-cover"
+                            />
+                        </div>
                     ))}
                 </motion.div>
             </div>
-        </section>
-    )
+        </div>
+    );
 }
+
+const heroData = [
+    {
+        title : 'Sustainable Fashion, Your Way.',
+        description : 'Buy, swap, and discover eco-friendly fashion that suits your style.',
+        image : 'https://res.cloudinary.com/dokktqvdq/image/upload/v1740878103/download-removebg-preview_awpqth.png'
+    },
+    {
+        title : 'Learn & Take Action for a Greener Future.',
+        description : 'Read insightful articles about textile waste, eco-friendly materials, and how you can make a difference.',
+        image : 'https://res.cloudinary.com/dokktqvdq/image/upload/v1740878084/Smartrac_Is_Bringing_Green_RFID_Tags_to_Market-removebg-preview_emvyxe.png'
+    },
+];

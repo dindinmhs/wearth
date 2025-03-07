@@ -4,10 +4,9 @@ import Image from "next/image"
 import Link from "next/link";
 import { IoMdPerson } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
-// import useAuthStore from "@/hooks/authStore";
-import { useRouter } from "next/navigation";
 import { DropDown } from "../molecules";
 import { useState } from "react";
+import { useAuthStore } from "@/store/useAuthStore";
 
 interface Props {
     otherStyles? : string;
@@ -42,12 +41,11 @@ export const ProfileIcon = ({ otherStyles='w-12', type, src='https://images.unsp
 
 export const ProfileDropdown = () => {
     const [isOpen, setOpen] = useState(false)
-    const router = useRouter()
-    // const {clearUser} = useAuthStore()
+    const {logout} = useAuthStore()
 
-    const logout = () => { 
-        // clearUser()
-        router.replace('/signin')
+    const handleLogout = () => { 
+        logout()
+        setOpen(false)
      }
 
     return (
@@ -56,7 +54,7 @@ export const ProfileDropdown = () => {
                 <IoMdPerson size={25}/>
                 <p>Profile</p>
             </Link>
-            <button onClick={logout} className="flex w-full gap-2 hover:bg-gray-200 px-3 py-2 items-center">
+            <button onClick={handleLogout} className="flex w-full gap-2 hover:bg-gray-200 px-3 py-2 items-center">
                 <MdLogout color="red" size={25}/>
                 <p className="text-red-500">Keluar</p>
             </button>

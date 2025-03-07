@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const ProductCard = ({ name, price, images, category, brand }: ProductType) => {
   return (
     <div className="rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
-      <div className="relative h-72">
+      <div className="relative h-48 w-full">
         <Image
           src={images[0]}
           alt={name}

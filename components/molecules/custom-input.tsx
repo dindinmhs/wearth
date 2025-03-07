@@ -13,15 +13,17 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 export const CustomInput = ({ type, icon, ...otherProps }: Props) => {
     const [isHide, setHide] = useState(true)
 
-    if (type === 'text') {
+    if (type === 'text' || type === 'email') {
         return (
-            <div className="flex gap-2 items-center border-b-4 rounded-md px-3 py-2 border-black">
-                <div className="w-6">
-                    {icon}
-                </div>
+            <div className="flex items-center bg-gray-50 border border-gray-200 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-green-500 focus-within:border-transparent transition-all">
+                {icon && (
+                    <div className="pl-3 flex-shrink-0">
+                        {icon}
+                    </div>
+                )}
                 <input 
                     type={type}
-                    className="focus:outline-none text-lg bg-transparent"
+                    className={`w-full py-3 ${icon ? 'pl-3' : 'pl-4'} pr-4 focus:outline-none bg-transparent`}
                     {...otherProps}
                 />
             </div>
@@ -29,17 +31,21 @@ export const CustomInput = ({ type, icon, ...otherProps }: Props) => {
     }
     if (type === 'password') {
         return (
-            <div className="flex gap-2 items-center border-b-4 rounded-md px-3 py-2 border-black">
-                <div className="w-6 flex-shrink-0">
-                    <MdOutlinePassword color="black" className="w-full h-full"/>
+            <div className="flex items-center bg-gray-50 border border-gray-200 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-green-500 focus-within:border-transparent transition-all">
+                <div className="pl-3 flex-shrink-0">
+                    {icon || <MdOutlinePassword className="h-5 w-5 text-gray-400"/>}
                 </div>
                 <input 
-                    type={isHide?"password":"text"}
-                    className="focus:outline-none text-lg flex-grow bg-transparent"
+                    type={isHide ? "password" : "text"}
+                    className="w-full py-3 pl-3 pr-4 focus:outline-none bg-transparent"
                     {...otherProps}
                 />
-                <button className="flex-shrink-0" type="button" onClick={()=>setHide(!isHide)}>
-                    {isHide?<FaRegEyeSlash size={25}/>:<FaRegEye size={25}/>}
+                <button 
+                    className="pr-3 flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors" 
+                    type="button" 
+                    onClick={() => setHide(!isHide)}
+                >
+                    {isHide ? <FaRegEyeSlash size={20}/> : <FaRegEye size={20}/>}
                 </button>
             </div>
         )

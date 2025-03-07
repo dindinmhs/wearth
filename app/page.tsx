@@ -18,7 +18,7 @@ const HomePage = () => {
                         <h2 className="text-3xl font-bold text-gray-900 mb-2">New Arrivals</h2>
                         <p className="text-gray-600">Discover our sustainable fashion collection</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                         {Products.map((product) => (
                             <Link href={`/products/${product.id}`} key={product.id}>
                                 <ProductCard {...product} />
@@ -33,7 +33,7 @@ const HomePage = () => {
                         <h2 className="text-3xl font-bold text-gray-900 mb-2">Fashion Stories</h2>
                         <p className="text-gray-600">Latest updates from the world of sustainable fashion</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                         {Articles.map((article, index) => (
                             <Link href={`/articles/${article.slug}`} key={index}>
                                 <ArticleCard

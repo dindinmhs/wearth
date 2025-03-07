@@ -10,7 +10,7 @@ interface ArticleCardProps {
 export const ArticleCard = ({ title, description, image, date }: ArticleCardProps) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
-      <div className="relative h-72">
+      <div className="relative h-48 w-full">
         <Image
           src={image}
           alt={title}

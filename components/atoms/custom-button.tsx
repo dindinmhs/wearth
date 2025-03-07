@@ -7,18 +7,30 @@ import { IconType } from "react-icons";
 
 interface Props {
     title : string;
-    variant? : 'default' | 'border';
+    variant? : 'default' | 'border' | 'primary';
     otherStyles? : string;
     textColor? : string;
     handleClick : ()=>void;
 }
 
-export const CustomButton = ({ title,  otherStyles, variant='default', textColor, handleClick } : Props) => {
+export const CustomButton = ({ title, otherStyles, variant='default', textColor, handleClick } : Props) => {
+    if (variant === 'primary') {
+        return (
+            <button
+                type="button"
+                onClick={handleClick}
+                className={`w-full py-3.5 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 transition-colors shadow-sm hover:shadow-md flex items-center justify-center ${otherStyles}`}
+            >
+                {title}
+            </button>
+        )
+    }
+    
     if (variant === 'default') {
         return (
             <button
             onClick={handleClick} 
-            className={`bg-gradient rounded-full font-bold px-4 py-2 text-xl h-fit text-gray-950`}>
+            className={`bg-gradient rounded-full font-bold px-4 py-2 text-xl h-fit text-gray-950 ${otherStyles}`}>
                 <div style={{ color : textColor }} className="text-center mx-auto">
                     {title}
                 </div>

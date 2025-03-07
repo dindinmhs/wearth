@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Logo, Notify, ProfileDropdown } from "../atoms"
 import { SearchInput, SpringModal } from "../molecules"
-import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoHome, IoHomeOutline } from "react-icons/io5"
+import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoHome, IoHomeOutline, IoPersonSharp } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
 import { forestGreen } from "@/color"
 import Link from "next/link"
@@ -62,9 +62,19 @@ export const NavbarDashboard = () => {
             <Link className="hidden sm:block" href={'/'}><Logo type="word" otherStyles=""/></Link>
             <Link className="sm:hidden block" href={'/'}><Logo type="icon" otherStyles=""/></Link>
             <SearchInput/>
-            {!isAuthenticated && <div className='md:flex gap-2 w-fit h-full items-center hidden'>
-                <button onClick={()=>setModalOpen(0)} className='text-nowrap btn-icon py-0 h-full'>Sign Up</button>
-                <button onClick={()=>setModalOpen(1)} className='text-nowrap btn py-0 h-full'>Sign In</button>
+            {!isAuthenticated && <div className='md:flex gap-3 w-fit h-full items-center hidden'>
+                <button 
+                    onClick={()=>setModalOpen(0)} 
+                    className='whitespace-nowrap px-4 py-2 border border-forest text-forest font-medium rounded-xl hover:bg-green-50 transition-colors'
+                >
+                    Sign Up
+                </button>
+                <button 
+                    onClick={()=>setModalOpen(1)} 
+                    className='whitespace-nowrap px-4 py-2 bg-forest text-white font-medium rounded-xl hover:bg-forest/90 transition-colors shadow-sm hover:shadow-md'
+                >
+                    Sign In
+                </button>
                 <SpringModal isOpen={modalOpen==0} setIsOpen={setModalOpen}><div><SignupForm setOpen={setModalOpen}/></div></SpringModal>
                 <SpringModal isOpen={modalOpen==1} setIsOpen={setModalOpen}><div><SigninForm setOpen={setModalOpen}/></div></SpringModal>
             </div>}

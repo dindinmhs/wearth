@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Logo, Notify, ProfileDropdown } from "../atoms"
 import { SearchInput, SpringModal } from "../molecules"
-import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoHome, IoHomeOutline, IoPersonSharp } from "react-icons/io5"
+import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoHome, IoHomeOutline } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
 import { forestGreen } from "@/color"
 import Link from "next/link"

@@ -29,7 +29,7 @@ export const SigninForm = ({
             <div className="relative p-6 backdrop-blur-sm">
                 <div className="mb-8">
                     <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Welcome Back</h2>
-                    <p className="text-gray-600 text-center">We're so excited to see you again!</p>
+                    <p className="text-gray-600 text-center">We re so excited to see you again!</p>
                 </div>
                 
                 <form className="space-y-5">
@@ -89,7 +89,7 @@ export const SigninForm = ({
                 
                 <div className="mt-8 text-center">
                     <p className="text-sm text-gray-600">
-                        New to Wearth? <button type="button" onClick={() => setOpen(1)} className="font-medium text-green-600 hover:text-green-500">Create an account</button>
+                        New to Sustyle? <button type="button" onClick={() => setOpen(1)} className="font-medium text-green-600 hover:text-green-500">Create an account</button>
                     </p>
                 </div>
             </div>

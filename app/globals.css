@@ -34,6 +34,14 @@ body {
   @apply bg-gradient-to-r from-purple-500 to-pink-500;
 }
 
+.btn-icon {
+  @apply flex gap-3 px-4 py-2 border-2 border-black rounded-md items-center;
+}
+
+.btn {
+  @apply flex gap-3 px-4 py-2 border-2 bg-forest rounded-md items-center justify-center font-bold text-lg text-white;
+}
+
 .text-head {
   @apply text-center text-4xl font-bold;
 }

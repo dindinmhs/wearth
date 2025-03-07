@@ -22,6 +22,50 @@ export const Articles = [
     slug: "understanding-climate-change"
   },
   {
+    title: "Bejir banjir botak",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "/images/articles/article1.jpg",
+    date: "2024-01-15",
+    content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
+
+    The primary driver of climate change is the emission of greenhouse gases, particularly carbon dioxide, from human activities. Industrial processes, deforestation, and the burning of fossil fuels contribute significantly to this environmental crisis. The effects are far-reaching, impacting everything from agriculture to coastal communities.
+
+    Scientists have observed numerous indicators of climate change:
+    • Rising global temperatures
+    • Melting polar ice caps
+    • Increasing ocean acidification
+    • More frequent extreme weather events
+    • Changes in precipitation patterns
+    • Loss of biodiversity
+
+    To address these challenges, we need coordinated global action. This includes transitioning to renewable energy sources, implementing sustainable agricultural practices, and protecting vital ecosystems like rainforests that act as carbon sinks.
+
+    Individual actions also play a crucial role. By making conscious choices about our consumption, transportation, and energy use, we can contribute to the solution. Every small step towards sustainability helps in the collective effort to combat climate change.`,
+    slug: "understanding-climate-change"
+  },
+  {
+    title: "Bejir banjir botak",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "/images/articles/article1.jpg",
+    date: "2024-01-15",
+    content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
+
+    The primary driver of climate change is the emission of greenhouse gases, particularly carbon dioxide, from human activities. Industrial processes, deforestation, and the burning of fossil fuels contribute significantly to this environmental crisis. The effects are far-reaching, impacting everything from agriculture to coastal communities.
+
+    Scientists have observed numerous indicators of climate change:
+    • Rising global temperatures
+    • Melting polar ice caps
+    • Increasing ocean acidification
+    • More frequent extreme weather events
+    • Changes in precipitation patterns
+    • Loss of biodiversity
+
+    To address these challenges, we need coordinated global action. This includes transitioning to renewable energy sources, implementing sustainable agricultural practices, and protecting vital ecosystems like rainforests that act as carbon sinks.
+
+    Individual actions also play a crucial role. By making conscious choices about our consumption, transportation, and energy use, we can contribute to the solution. Every small step towards sustainability helps in the collective effort to combat climate change.`,
+    slug: "understanding-climate-change"
+  },
+  {
     title: "Sustainable Living Tips",
     description: "Practical ways to reduce your carbon footprint and live sustainably",
     image: "/images/articles/article2.jpg",

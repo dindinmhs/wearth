@@ -2,6 +2,7 @@
 import { forestGreen } from "@/color"
 import { ArticleCard } from "@/components/articles"
 import { CheckBox, Chip, SelectDropdown } from "@/components/atoms"
+import { DragCloseDrawer } from "@/components/molecules"
 import { NavbarDashboard, NavbarMobile } from "@/components/organism"
 import { ProductCard } from "@/components/products"
 import { Articles } from "@/data"
@@ -9,7 +10,8 @@ import { Products } from "@/data/products"
 import Link from "next/link"
 import { Dispatch, SetStateAction, useState } from "react"
 import { IconType } from "react-icons"
-import { IoNewspaper, IoNewspaperOutline, IoShirt, IoShirtOutline } from "react-icons/io5"
+import { AiOutlineSwap } from "react-icons/ai"
+import { IoFilter, IoNewspaper, IoNewspaperOutline, IoShirt, IoShirtOutline } from "react-icons/io5"
 
 const ExplorePage = () => { 
     const tabs = [
@@ -32,9 +34,11 @@ const ExplorePage = () => {
             <NavbarMobile/>
             <main className="pb-16 w-11/12 mx-auto">
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-[1fr_5fr] gap-8">
-                    <div className="h-[100vh] md:sticky top-24 pt-24 md:pt-0">
-                        <h2>Filter</h2>
-                        {selected=='Product'?<GroupProduct/>:<GroupArticle/>}
+                    <div className="h-fit hidden md:block md:sticky top-24">
+                        <div>
+                            <h2 className="text-lg font-semibold">Filter</h2>
+                            {selected=='Product'?<GroupProduct/>:<GroupArticle/>}
+                        </div>
                     </div>
                     <div className="pt-24">
                         <MainSection selected={selected} setSelected={setSelected} tabs={tabs}/>
@@ -58,6 +62,7 @@ const ExplorePage = () => {
         iconActive : React.ReactElement<IconType>
     }[]
  }) => { 
+     const [open, setOpen] = useState<null|number>(null)
     return (
         <>
             <div className="flex">
@@ -72,16 +77,39 @@ const ExplorePage = () => {
                     />
                 ))}
             </div>
-            <div className="flex justify-end">
-                <SelectDropdown labelPlace="left" title="Sort By" items={[
-                    'Latest Added',
-                    'Earliest Added',
-                    'Cheapest First',
-                    'Highest Price',
-                    'Most Expensive',
-                ]}/>
+            <div className="flex md:justify-end">
+                <div className="hidden md:block">
+                    <SelectDropdown labelPlace="left" title="Sort By" items={[
+                        'Latest Added',
+                        'Earliest Added',
+                        'Cheapest First',
+                        'Highest Price',
+                        'Most Expensive',
+                    ]}/>
+                </div>
+                <div className="md:hidden flex gap-2 mt-2">
+                    <button onClick={()=>setOpen(0)} className="btn-icon">
+                        <IoFilter/>
+                        <h4 className="font-medium">Filter</h4>
+                    </button>
+                    <button onClick={()=>setOpen(1)} className="btn-icon">
+                        <AiOutlineSwap className="-rotate-90"/>
+                        <h4 className="font-medium">Sort</h4>
+                    </button>
+                </div>
+                <DragCloseDrawer open={open == 0} setOpen={setOpen}>
+                    <div className="flex flex-col h-full justify-between">
+                        {selected=='Product'?<GroupProduct/>:<GroupArticle/>}
+                        <button className="btn w-full">
+                            Apply
+                        </button>
+                    </div>
+                </DragCloseDrawer>
+                <DragCloseDrawer open={open == 1} setOpen={setOpen}>
+                    <div>ini sort</div>
+                </DragCloseDrawer>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
                 {selected=='Product'?
                 Products.map((product) => (
                 <Link href={`/products/${product.id}`} key={product.id}>

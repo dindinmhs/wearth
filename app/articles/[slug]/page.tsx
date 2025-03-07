@@ -1,10 +1,11 @@
 import { NavbarDashboard } from "@/components/organism";
+import { BackButton } from "@/components/atoms/BackButton";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Articles } from "@/data/articles";
 import { IoTimeOutline } from "react-icons/io5";
-import { IoArrowBack } from "react-icons/io5";
-import Link from "next/link";
+import { Breadcrumb } from "@/components/atoms/Breadcrumb";
+
 
 export default function Page({ params }: { params: { slug: string } }) {
   const article = Articles.find(article => article.slug === params.slug);
@@ -18,15 +19,13 @@ export default function Page({ params }: { params: { slug: string } }) {
       <NavbarDashboard />
       <main className="pt-20 pb-16 bg-white min-h-screen">
         <div className="max-w-3xl mx-auto px-4">
-          {/* Back Button */}
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 group"
-          >
-            <IoArrowBack className="text-xl transition-transform group-hover:-translate-x-1" />
-            <span className="font-medium">Back</span>
-          </Link>
-
+          <BackButton href="/" />
+          <Breadcrumb 
+              items={[
+                { label: 'Home', href: '/' },
+                { label: article.title }
+              ]} 
+            />
           <article>
             {/* Article Header */}
             <header className="mb-8">

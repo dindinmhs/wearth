@@ -28,7 +28,7 @@ const HomePage = () => {
                 </div>
 
                 {/* Articles Section */}
-                <div className="container mx-auto px-4 py-16 bg-gray-50">
+                <div className="container mx-auto px-4 py-16">
                     <div className="mb-8">
                         <h2 className="text-3xl font-bold text-gray-900 mb-2">Fashion Stories</h2>
                         <p className="text-gray-600">Latest updates from the world of sustainable fashion</p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
+import { ChatPopup } from "@/components/organism/ChatPopup";
 
 const monsterrat  = Montserrat({
   variable: "--font-montserrat",
@@ -21,15 +22,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${monsterrat.className} ${inter.className} antialiased bg-gray-50 dark:bg-dark duration-200 dark:text-gray-100`}
-      >
+      <body>
         {children}
+        <ChatPopup />
       </body>
     </html>
   );

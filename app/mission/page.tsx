@@ -18,17 +18,17 @@ export default function Mission() {
         <main className="pt-20 pb-16 bg-gradient-to-b from-gray-50 to-white min-h-screen">
           <div className="max-w-6xl mx-auto px-4">
             {/* Header Section */}
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold mb-3 bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent">
+            <div className="text-center mb-8 md:mb-12">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 md:mb-3 bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent">
                 Mission Board
               </h1>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-4">
                 Complete missions, earn rewards, and make sustainable fashion choices
               </p>
             </div>
   
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
               <div className="bg-white rounded-2xl p-6 shadow-lg shadow-green-100 border border-green-100">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
@@ -67,14 +67,14 @@ export default function Mission() {
             </div>
   
             {/* Missions Grid */}
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-4 md:gap-6">
               {missions.map((mission) => (
                 <div 
                   key={mission.id} 
-                  className="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl border border-gray-100"
+                  className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg transition-all duration-300 hover:shadow-xl border border-gray-100"
                 >
-                  <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-green-50 p-3 flex-shrink-0">
+                  <div className="flex items-start gap-3 md:gap-6">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-green-50 p-2 md:p-3 flex-shrink-0">
                       <div className="relative w-full h-full">
                         <Image
                           src={mission.icon}
@@ -84,20 +84,20 @@ export default function Mission() {
                         />
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2 md:mb-3">
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-800 mb-1">{mission.title}</h3>
-                          <p className="text-gray-500 text-sm">{mission.description}</p>
+                          <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-1">{mission.title}</h3>
+                          <p className="text-xs md:text-sm text-gray-500">{mission.description}</p>
                         </div>
-                        <div className="flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-full">
-                          <BsCoin className="text-yellow-500" />
-                          <span className="font-semibold text-green-700">{mission.reward}</span>
+                        <div className="flex items-center gap-1.5 bg-green-50 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full flex-shrink-0 w-fit">
+                          <BsCoin className="text-yellow-500 text-base md:text-lg" />
+                          <span className="font-semibold text-green-700 text-sm md:text-base">{mission.reward}</span>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between mt-6">
-                        <div className="w-[800px]">
-                          <div className="flex justify-between text-sm mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-4 md:mt-6">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex justify-between text-xs md:text-sm mb-2">
                             <span className="text-gray-500">Progress</span>
                             <span className="font-medium text-gray-700">
                               {mission.progress}/{mission.target}
@@ -116,21 +116,16 @@ export default function Mission() {
                             />
                           </div>
                         </div>
-                        {mission.status === 'completed' ? (
-                          <button
-                            onClick={() => handleMissionAction(mission.id)}
-                            className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-green-500 text-white text-sm rounded-full font-medium hover:bg-green-600 transition-all duration-200 shadow-sm hover:shadow"
-                          >
-                            <span>Claim</span>
-                          </button>
-                        ) : (
-                          <button
-                            onClick={() => handleMissionAction(mission.id)}
-                            className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-blue-500 text-white text-sm rounded-full font-medium hover:bg-blue-600 transition-all duration-200 shadow-sm hover:shadow"
-                          >
-                            <span>Start</span>
-                          </button>
-                        )}
+                        <button
+                          onClick={() => handleMissionAction(mission.id)}
+                          className={`inline-flex items-center justify-center gap-1.5 px-4 py-1.5 text-white text-sm rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow w-full sm:w-auto ${
+                            mission.status === 'completed'
+                              ? 'bg-green-500 hover:bg-green-600'
+                              : 'bg-blue-500 hover:bg-blue-600'
+                          }`}
+                        >
+                          <span>{mission.status === 'completed' ? 'Claim' : 'Start'}</span>
+                        </button>
                       </div>
                     </div>
                   </div>

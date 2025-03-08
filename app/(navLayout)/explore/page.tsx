@@ -3,7 +3,7 @@ import { forestGreen } from "@/color"
 import { ArticleCard } from "@/components/articles"
 import { CheckBox, Chip, SelectDropdown } from "@/components/atoms"
 import { DragCloseDrawer } from "@/components/molecules"
-import { NavbarDashboard, NavbarMobile } from "@/components/organism"
+import { NavbarDashboard } from "@/components/organism"
 import { ProductCard } from "@/components/products"
 import { Articles } from "@/data"
 import { Products } from "@/data/products"
@@ -31,7 +31,6 @@ const ExplorePage = () => {
     return (
         <>
             <NavbarDashboard/>
-            <NavbarMobile/>
             <main className="pb-16 w-11/12 mx-auto">
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-[1fr_5fr] gap-8">
                     <div className="h-fit hidden md:block md:sticky top-24">
@@ -68,6 +67,7 @@ const ExplorePage = () => {
             <div className="flex">
                 {tabs.map((tab) => (
                     <Chip
+                    type="bar"
                     text={tab.title}
                     selected={selected === tab.title}
                     setSelected={setSelected}

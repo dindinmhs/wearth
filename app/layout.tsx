@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${monsterrat.className} ${inter.className} antialiased bg-gray-50 dark:bg-dark duration-200 dark:text-gray-100`}
+        className={`${monsterrat.className} ${inter.className} antialiased bg-gray-50 duration-200`}
       >
         {children}
         <ChatPopup />

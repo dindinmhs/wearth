@@ -1,16 +1,16 @@
 "use client"
 
 import { useState } from 'react'
-import { Logo, Notify, ProfileDropdown } from "../atoms"
+import { Chip, Logo, Notify, ProfileDropdown } from "../atoms"
 import { SearchInput, SpringModal } from "../molecules"
-import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoHome, IoHomeOutline } from "react-icons/io5"
+import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoCompass, IoCompassOutline, IoTrophy, IoTrophyOutline } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
 import { forestGreen } from "@/color"
 import Link from "next/link"
 import Image from 'next/image'
 import { CartItems } from '@/data/cart'
 import { TradeItems } from '@/data/trade'
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { useAuthStore } from '@/store/useAuthStore'
 import { SignupForm } from './signup-form'

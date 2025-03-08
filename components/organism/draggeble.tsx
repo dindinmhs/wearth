@@ -29,10 +29,10 @@ export const DragSection = ({ product }: Props) => {
   };
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full">
       {/* Container gambar utama dengan tinggi yang sesuai */}
-      <div className={`overflow-hidden rounded-lg relative ${isTwoDimension?'h-[75vh]':'h-full'}`}>
-        {isTwoDimension?<motion.div
+      <div className={`overflow-hidden rounded-lg relative ${isTwoDimension ? 'h-[45vh] md:h-[65vh]' : 'h-[45vh] md:h-[65vh]'}`}>
+        {isTwoDimension ? <motion.div
           className="flex cursor-grab active:cursor-grabbing h-full"
           dragConstraints={{ left: 0, right: 0 }}
           drag="x"
@@ -53,14 +53,14 @@ export const DragSection = ({ product }: Props) => {
               <div className="absolute inset-0"></div>
             </div>
           ))}
-        </motion.div>:<GLBViewer url="/shirt_baked.glb"/>}
-        <button onClick={()=>setDimension(!isTwoDimension)} className="p-3 rounded-lg font-bold text-2xl absolute top-2 right-2 bg-gray-200">
-            <h3>{isTwoDimension?'2D':'3D'}</h3>
+        </motion.div> : <GLBViewer url="/shirt_baked.glb" />}
+        <button onClick={() => setDimension(!isTwoDimension)} className="p-2 md:p-3 rounded-lg font-bold text-xl md:text-2xl absolute top-2 right-2 bg-gray-200">
+          <h3>{isTwoDimension ? '2D' : '3D'}</h3>
         </button>
       </div>
 
       {/* Thumbnail list */}
-      <div className="flex gap-2 overflow-x-auto p-2">
+      <div className="flex gap-2 overflow-x-auto p-2 mt-2">
         {isTwoDimension&&product.images.map((uri, i) => (
           <button key={i} onClick={() => setImgIdx(i)}>
             <Image

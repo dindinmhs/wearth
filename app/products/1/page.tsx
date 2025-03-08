@@ -25,7 +25,7 @@ export default function ProductDetail() {
         'Fair trade certified'
       ],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      condition: 'New'
+      condition: 'New',
     }
 
   return (
@@ -42,16 +42,15 @@ export default function ProductDetail() {
               ]} 
             />
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8">
             {/* Left (Image) */}
-            <div className="h-[80vh] pt-8 md:pt-0">
+            <div className="h-auto pt-4 md:pt-0">
               <DragSection product={product} />
             </div>
             {/* Right (Product Info) */}
-            <div className="flex flex-col space-y-6">
+            <div className="pt-4 md:pt-0 flex flex-col space-y-4 md:space-y-6">
               {product.brand && (
-                <span className="text-gray-500 text-lg">{product.brand}</span>
+                <span className="text-gray-500 text-sm md:text-lg">{product.brand}</span>
               )}
               <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
               <div className="text-2xl font-bold text-gray-900">
@@ -59,13 +58,11 @@ export default function ProductDetail() {
               </div>
               
               {/* Product Condition */}
-              {product.condition && (
-                <div className="flex items-center">
-                  <span className="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded">
-                    {product.condition}
-                  </span>
-                </div>
-              )}
+              <div className="flex items-center">
+                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                  {product.condition}
+                </span>
+              </div>
 
               {/* Size Selection */}
               <div>

@@ -227,13 +227,47 @@ export const NavbarDashboard = () => {
 }
 
 export const NavbarMobile = () => {
+    const pathname = usePathname(); 
+    const pathSegment = pathname.split('/')[1];
+    const [selected, setSelected] = useState(pathSegment);
+    
+    const tabs = [
+        {
+            title : 'Explore',
+            iconDefault : <IoCompassOutline className="w-full h-full"/>,
+            iconActive : <IoCompass className="w-full h-full" color={forestGreen}/>
+        },
+        {
+            title : 'Shop',
+            iconDefault : <IoBagHandleOutline className="w-full h-full"/>,
+            iconActive : <IoBagHandle className="w-full h-full" color={forestGreen}/>
+        },
+        {
+            title : 'Trade',
+            iconDefault : <AiOutlineSwap className="w-full h-full"/>,
+            iconActive : <AiOutlineSwap className="w-full h-full" color={forestGreen}/>
+        },
+        {
+            title : 'Mission',
+            iconDefault : <IoTrophyOutline className="w-full h-full"/>,
+            iconActive : <IoTrophy className="w-full h-full" color={forestGreen}/>
+        },
+    ];
     return (
-        <div className="flex sm:hidden fixed bottom-0 left-0 right-0 justify-around bg-white z-10">
-            <Notify icon={<IoHomeOutline className="w-full h-full"/>} activeIcon={<IoHome color={forestGreen} className="w-full h-full"/>} counter={2}/>
-            <Notify icon={<IoBagHandleOutline className="w-full h-full"/>} activeIcon={<IoBagHandle color={forestGreen} className="w-full h-full"/>} counter={2}/>
-                <Notify icon={<AiOutlineSwap className="w-full h-full"/>} activeIcon={<AiOutlineSwap color={forestGreen} className="w-full h-full"/>} counter={2}/>
-                <Notify icon={<IoChatboxEllipsesOutline className="w-full h-full"/>} activeIcon={<IoChatboxEllipses color={forestGreen} className="w-full h-full"/>} counter={2}/>
-                <ProfileDropdown/>
+        <div className="flex sm:hidden fixed h-fit bottom-0 left-0 right-0 justify-around bg-white z-10 pt-2">
+            {tabs.map((tab) => (
+                <Chip
+                type="circle"
+                isLink
+                text={tab.title}
+                selected={selected === tab.title.toLocaleLowerCase()}
+                setSelected={setSelected}
+                key={tab.title}
+                iconActive={tab.iconActive}
+                iconDefault={tab.iconDefault}
+                />
+            ))}
+            <ProfileDropdown/>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 export const Articles = [
   {
-    title: "Bejir banjir botak",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "The Environmental Impact of Fast Fashion",
+    description: "How the fast fashion industry contributes to pollution, waste, and climate change.",
     image: "/images/articles/article1.jpg",
     date: "2024-01-15",
     content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
@@ -19,11 +19,11 @@ export const Articles = [
     To address these challenges, we need coordinated global action. This includes transitioning to renewable energy sources, implementing sustainable agricultural practices, and protecting vital ecosystems like rainforests that act as carbon sinks.
 
     Individual actions also play a crucial role. By making conscious choices about our consumption, transportation, and energy use, we can contribute to the solution. Every small step towards sustainability helps in the collective effort to combat climate change.`,
-    slug: "understanding-climate-change"
+    slug: "environmental-impact-fast-fashion"
   },
   {
-    title: "Bejir banjir botak",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Sustainable Materials Revolutionizing Fashion",
+    description: "Exploring innovative eco-friendly fabrics and materials that are changing the clothing industry.",
     image: "/images/articles/article1.jpg",
     date: "2024-01-15",
     content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
@@ -41,11 +41,11 @@ export const Articles = [
     To address these challenges, we need coordinated global action. This includes transitioning to renewable energy sources, implementing sustainable agricultural practices, and protecting vital ecosystems like rainforests that act as carbon sinks.
 
     Individual actions also play a crucial role. By making conscious choices about our consumption, transportation, and energy use, we can contribute to the solution. Every small step towards sustainability helps in the collective effort to combat climate change.`,
-    slug: "understanding-climate-change"
+    slug: "sustainable-fashion-materials"
   },
   {
-    title: "Bejir banjir botak",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Circular Fashion: The Future of Clothing",
+    description: "How circular economy principles are being applied to create a more sustainable fashion industry.",
     image: "/images/articles/article1.jpg",
     date: "2024-01-15",
     content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
@@ -63,11 +63,11 @@ export const Articles = [
     To address these challenges, we need coordinated global action. This includes transitioning to renewable energy sources, implementing sustainable agricultural practices, and protecting vital ecosystems like rainforests that act as carbon sinks.
 
     Individual actions also play a crucial role. By making conscious choices about our consumption, transportation, and energy use, we can contribute to the solution. Every small step towards sustainability helps in the collective effort to combat climate change.`,
-    slug: "understanding-climate-change"
+    slug: "circular-fashion-economy"
   },
   {
-    title: "Sustainable Living Tips",
-    description: "Practical ways to reduce your carbon footprint and live sustainably",
+    title: "Building a Sustainable Wardrobe",
+    description: "Practical tips for creating an eco-friendly wardrobe that reduces your fashion footprint.",
     image: "/images/articles/article2.jpg",
     date: "2024-01-14",
     content: `Living sustainably isn't just a trend – it's a necessary shift in how we approach our daily lives. As we face increasing environmental challenges, making conscious choices about how we live becomes more important than ever.
@@ -101,11 +101,11 @@ export const Articles = [
     • Donate or sell unused items
 
     Remember, sustainable living isn't about perfection – it's about making better choices where possible and continuously learning and adapting our habits for a better future.`,
-    slug: "sustainable-living-tips"
+    slug: "sustainable-wardrobe-tips"
   },
   {
-    title: "Renewable Energy Future",
-    description: "Exploring the potential of renewable energy sources",
+    title: "Ethical Fashion: Supporting Fair Trade Practices",
+    description: "How conscious consumers can support brands that prioritize worker welfare and ethical production.",
     image: "/images/articles/article3.jpg",
     date: "2024-01-13",
     content: `The future of energy is renewable, and the transformation is already underway. As technology advances and costs decrease, renewable energy sources are becoming increasingly viable alternatives to fossil fuels.
@@ -131,6 +131,6 @@ export const Articles = [
     • Economic development opportunities
 
     As we move forward, integrating these technologies with smart grids and energy storage solutions will create a more resilient and sustainable energy system for future generations.`,
-    slug: "renewable-energy-future"
+    slug: "ethical-fashion-fair-trade"
   }
 ];

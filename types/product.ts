@@ -8,4 +8,5 @@ export interface ProductType {
     description: string;
     features: string[];
     sizes: string[]
+    condition? : string;
 }

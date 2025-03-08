@@ -20,7 +20,8 @@ export const Products : ProductType[] = [
       'Zero plastic packaging',
       'Fair trade certified'
     ],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    condition: 'New'
   },
   {
     id: '2',
@@ -41,7 +42,8 @@ export const Products : ProductType[] = [
       'Eco-friendly washing process',
       'Biodegradable buttons and rivets'
     ],
-    sizes: ['26', '27', '28', '29', '30', '31', '32']
+    sizes: ['26', '27', '28', '29', '30', '31', '32'],
+    condition: 'Like New'
   },
   {
     id: '3',
@@ -63,6 +65,7 @@ export const Products : ProductType[] = [
       'Wrinkle-resistant'
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL']
+    // No condition property for this product
   },
   {
     id: '4',
@@ -83,7 +86,8 @@ export const Products : ProductType[] = [
       'Reflective details for visibility',
       'Breathable mesh lining'
     ],
-    sizes: ['S', 'M', 'L', 'XL']
+    sizes: ['S', 'M', 'L', 'XL'],
+    condition: 'Gently Used'
   },
   {
     id: '5',
@@ -104,6 +108,7 @@ export const Products : ProductType[] = [
       'Reflective details for visibility',
       'Breathable mesh lining'
     ],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L', 'XL']
+    // No condition property for this product
   }
 ];

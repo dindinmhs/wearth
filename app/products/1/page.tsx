@@ -1,22 +1,32 @@
 "use client";
-import { Products } from "@/data/products";
 import { DragSection, NavbarDashboard } from "@/components/organism";
 import { BackButton } from "@/components/atoms/BackButton";
 import { Breadcrumb } from "@/components/atoms/Breadcrumb";
-import { notFound } from "next/navigation";
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function ProductDetail({ params }: ProductPageProps) {
-  const product = Products.find((p) => p.id === params.id);
-
-  if (!product) {
-    notFound();
-  }
+export default function ProductDetail() {
+  // Static product data
+  const product = {
+      id: '1',
+      name: 'Organic Cotton Oversized T-Shirt',
+      price: 299000,
+      images: [
+        '/images/products/Windbreaker.jpg',
+        'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879476/I_m_Just_Here_for_the_Fireworks_Graphic_Tee_-_White___3XL_wlbxm2.jpg',
+        'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879483/Mens_Short_Sleeve_The_Wizard_of_Oz_Graphic_T-Shirt___Black___Regular_Medium___Shirts_Tops_Graphic_T-shirts_viv5wo.jpg'
+      ],
+      category: 'T-Shirts',
+      brand: 'EcoWear',
+      description: 'Made from 100% organic cotton, this oversized t-shirt combines comfort with sustainability. The breathable fabric ensures all-day comfort while minimizing environmental impact. Each piece is crafted using water-saving techniques and natural dyes.',
+      features: [
+        'Made from 100% organic cotton',
+        'Water-saving production process',
+        'Natural dye coloring',
+        'Zero plastic packaging',
+        'Fair trade certified'
+      ],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      condition: 'New'
+    }
 
   return (
     <>
@@ -34,12 +44,12 @@ export default function ProductDetail({ params }: ProductPageProps) {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Kiri (Sticky Image) */}
-            <div className="h-[100vh] md:sticky top-24 pt-8 md:pt-0">
+            {/* Left (Image) */}
+            <div className="h-[80vh] pt-8 md:pt-0">
               <DragSection product={product} />
             </div>
-            {/* Kanan (Product Info yang Bisa di-Scroll) */}
-            <div className="md:pt-24 flex flex-col space-y-6 md:overflow-y-auto">
+            {/* Right (Product Info) */}
+            <div className="flex flex-col space-y-6">
               {product.brand && (
                 <span className="text-gray-500 text-lg">{product.brand}</span>
               )}
@@ -47,6 +57,15 @@ export default function ProductDetail({ params }: ProductPageProps) {
               <div className="text-2xl font-bold text-gray-900">
                 Rp {product.price.toLocaleString("id-ID")}
               </div>
+              
+              {/* Product Condition */}
+              {product.condition && (
+                <div className="flex items-center">
+                  <span className="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded">
+                    {product.condition}
+                  </span>
+                </div>
+              )}
 
               {/* Size Selection */}
               <div>

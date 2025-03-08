@@ -4,6 +4,7 @@ import { ProductCard } from "@/components/products/ProductCard";
 import { Articles } from '@/data/articles';
 import { Products } from '@/data/products';
 import Link from 'next/link';
+import { FooterSection } from "@/components/organism/footer";
 
 const HomePage = () => { 
     return (
@@ -48,6 +49,7 @@ const HomePage = () => {
                 </div>
                 <ReviewSection/>
             </main>
+            <FooterSection/>
         </>
     )
 }

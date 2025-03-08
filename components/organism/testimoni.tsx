@@ -5,15 +5,17 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { testimoniData } from "@/data";
 
-const SLIDE_DURATION = 10000;
+const SLIDE_DURATION = 5000;
 
 export const ReviewSection = () => {
     const [index, setIndex] = useState(0);
+    const [initialLoad, setInitialLoad] = useState(true); // Penanda untuk awal agar semua abu
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const resetTimer = (newIndex: number) => {
         if (intervalRef.current) clearInterval(intervalRef.current);
         setIndex(newIndex);
+        setInitialLoad(false); // Setelah progress pertama dimulai, ubah menjadi false
 
         intervalRef.current = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % testimoniData.length);
@@ -21,8 +23,9 @@ export const ReviewSection = () => {
     };
 
     useEffect(() => {
-        resetTimer(0);
+        const timeout = setTimeout(() => resetTimer(0), 1000); // Delay untuk progress pertama
         return () => {
+            clearTimeout(timeout);
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
     }, []);
@@ -32,7 +35,7 @@ export const ReviewSection = () => {
             {/* Bagian Teks */}
             <div className="flex flex-col h-fit gap-2 md:h-[400px]">
                 <div className="flex flex-col gap-3 flex-1 justify-center">
-                    <h1 className="text-3xl lg:text-6xl font-bold">What Out Customer Thinks</h1>
+                    <h1 className="text-3xl lg:text-6xl font-bold">What Our Customers Think</h1>
                     <p className="mt-2 text-gray-600 lg:text-xl text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt tempore beatae distinctio repellendus aliquam veritatis quibusdam atque facilis odit, itaque dolore officia, culpa accusamus ad suscipit quidem ipsum. Corporis, odio.</p>
                 </div>
                 {/* Progress Indicator */}
@@ -44,9 +47,9 @@ export const ReviewSection = () => {
                             className="w-full h-3 bg-gray-300 cursor-pointer rounded-lg relative overflow-hidden"
                         >
                             <motion.div 
-                                animate={{ width: i === index ? "100%" : "0%" }}
+                                animate={{ width: initialLoad ? "0%" : i === index ? "100%" : i < index ? "100%" : "0%" }}
                                 transition={{ duration: SLIDE_DURATION / 1000 }}
-                                className={`h-full ${i <= index ? "bg-forest" : "bg-gray-300"}`}
+                                className={`h-full ${i === index ? "bg-black" : i < index ? "bg-black" : "bg-gray-300"}`}
                             />
                         </div>
                     ))}

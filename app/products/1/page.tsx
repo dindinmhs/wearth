@@ -4,6 +4,7 @@ import { BackButton } from "@/components/atoms/BackButton";
 import { Breadcrumb } from "@/components/atoms/Breadcrumb";
 import { Products } from "@/data/products";
 import { FooterSection } from "@/components/organism/footer";
+import Image from "next/image";
 
 export default function ProductDetail() {
   // Get product data from the Products array
@@ -85,9 +86,11 @@ export default function ProductDetail() {
                 <div className="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                   <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
                     {product.seller.avatar ? (
-                      <img 
+                      <Image 
                         src={product.seller.avatar} 
                         alt={product.seller.name} 
+                        width={48}
+                        height={48}
                         className="w-full h-full object-cover"
                       />
                     ) : (

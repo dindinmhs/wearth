@@ -77,47 +77,73 @@ const ExplorePage = () => {
                     />
                 ))}
             </div>
-            <div className="flex md:justify-end">
+            <div className="flex justify-between items-center mt-4 md:mt-6">
+                <h2 className="text-xl font-semibold hidden md:block">All {selected}s</h2>
                 <div className="hidden md:block">
-                    <SelectDropdown labelPlace="left" title="Sort By" items={[
-                        'Latest Added',
-                        'Earliest Added',
-                        'Cheapest First',
-                        'Highest Price',
-                        'Most Expensive',
-                    ]}/>
+                    <SelectDropdown 
+                        labelPlace="left" 
+                        title="Sort By" 
+                        items={[
+                            'Latest Added',
+                            'Earliest Added',
+                            'Cheapest First',
+                            'Highest Price',
+                            'Most Expensive',
+                        ]}
+                    />
                 </div>
-                <div className="md:hidden flex gap-2 mt-2">
-                    <button onClick={()=>setOpen(0)} className="btn-icon">
-                        <IoFilter/>
-                        <h4 className="font-medium">Filter</h4>
+                <div className="md:hidden flex gap-3 w-full">
+                    <button onClick={()=>setOpen(0)} className="flex-1 py-2 px-4 bg-gray-100 rounded-lg flex items-center justify-center gap-2">
+                        <IoFilter size={18}/>
+                        <span className="font-medium">Filter</span>
                     </button>
-                    <button onClick={()=>setOpen(1)} className="btn-icon">
-                        <AiOutlineSwap className="-rotate-90"/>
-                        <h4 className="font-medium">Sort</h4>
+                    <button onClick={()=>setOpen(1)} className="flex-1 py-2 px-4 bg-gray-100 rounded-lg flex items-center justify-center gap-2">
+                        <AiOutlineSwap className="-rotate-90" size={18}/>
+                        <span className="font-medium">Sort</span>
                     </button>
                 </div>
                 <DragCloseDrawer open={open == 0} setOpen={setOpen}>
-                    <div className="flex flex-col h-full justify-between">
-                        {selected=='Product'?<GroupProduct/>:<GroupArticle/>}
-                        <button className="btn w-full">
-                            Apply
+                    <div className="flex flex-col h-full justify-between p-4">
+                        <div>
+                            <h3 className="text-xl font-semibold mb-4">Filter {selected}s</h3>
+                            {selected=='Product'?<GroupProduct/>:<GroupArticle/>}
+                        </div>
+                        <button className="btn w-full bg-green-600 text-white py-3 rounded-lg font-medium mt-4">
+                            Apply Filters
                         </button>
                     </div>
                 </DragCloseDrawer>
                 <DragCloseDrawer open={open == 1} setOpen={setOpen}>
-                    <div>ini sort</div>
+                    <div className="p-4">
+                        <h3 className="text-xl font-semibold mb-4">Sort By</h3>
+                        <div className="flex flex-col gap-3">
+                            {['Latest Added', 'Earliest Added', 'Cheapest First', 'Highest Price', 'Most Expensive'].map((item, index) => (
+                                <button 
+                                    key={index} 
+                                    className="text-left py-3 px-4 border border-gray-200 rounded-lg hover:bg-gray-50 active:bg-gray-100"
+                                    onClick={() => {
+                                        // Handle sort selection
+                                        console.log(`Sorting by: ${item}`);
+                                        // Close the drawer after selection
+                                        setOpen(null);
+                                    }}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                 </DragCloseDrawer>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
                 {selected=='Product'?
                 Products.map((product) => (
-                <Link href={`/products/${product.id}`} key={product.id}>
+                <Link href={'/products/1'}>
                     <ProductCard {...product} />
                 </Link>
                 )):
                     Articles.map((article, index) => (
-                        <Link href={`/articles/${article.slug}`} key={index}>
+                        <Link href={'/articles/environmental-impact-fast-fashion'}>
                             <ArticleCard
                                 title={article.title}
                                 description={article.description}
@@ -134,30 +160,47 @@ const ExplorePage = () => {
 
  const GroupProduct = () => {
     return (
-        <div>
-            <h4>Select Dimension</h4>
-            <CheckBox title="3D"/>
-            <CheckBox title="2D"/>
-            <h4>Select Condition</h4>
-            <CheckBox title="Like New"/>
-            <CheckBox title="Very Good"/>
-            <CheckBox title="Good"/>
-            <CheckBox title="Needs Improvemont"/>
+        <div className="space-y-4">
+            <div className="border-b pb-3">
+                <h4 className="font-medium mb-2">Dimension</h4>
+                <div className="space-y-2">
+                    <CheckBox title="3D"/>
+                    <CheckBox title="2D"/>
+                </div>
+            </div>
+            <div className="border-b pb-3">
+                <h4 className="font-medium mb-2">Condition</h4>
+                <div className="space-y-2">
+                    <CheckBox title="New"/>
+                    <CheckBox title="Like New"/>
+                    <CheckBox title="Very Good"/>
+                    <CheckBox title="Good"/>
+                    <CheckBox title="Gently Used"/>
+                </div>
+            </div>
         </div>
     )
  }
 
  const GroupArticle = () => {
     return (
-        <div>
-            <h4>Category</h4>
-            <CheckBox title="3D"/>
-            <CheckBox title="2D"/>
-            <h4>Content Type</h4>
-            <CheckBox title="Like New"/>
-            <CheckBox title="Very Good"/>
-            <CheckBox title="Good"/>
-            <CheckBox title="Needs Improvemont"/>
+        <div className="space-y-4">
+            <div className="border-b pb-3">
+                <h4 className="font-medium mb-2">Category</h4>
+                <div className="space-y-2">
+                    <CheckBox title="Sustainability"/>
+                    <CheckBox title="Fashion"/>
+                </div>
+            </div>
+            <div className="border-b pb-3">
+                <h4 className="font-medium mb-2">Content Type</h4>
+                <div className="space-y-2">
+                    <CheckBox title="Blog"/>
+                    <CheckBox title="News"/>
+                    <CheckBox title="Tutorial"/>
+                    <CheckBox title="Review"/>
+                </div>
+            </div>
         </div>
     )
  }

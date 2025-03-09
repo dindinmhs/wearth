@@ -24,7 +24,7 @@ const HomePage = () => {
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                         {Products.map((product) => (
-                            <Link href={`/products/1`} key={product.id}>
+                            <Link href={'/products/1'}>
                                 <ProductCard {...product} />
                             </Link>
                         ))}
@@ -39,7 +39,7 @@ const HomePage = () => {
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     {Articles.map((article, index) => (
-                            <Link href={'/articles/environmental-impact-fast-fashion'} key={index}>
+                            <Link href={'/articles/environmental-impact-fast-fashion'}>
                                 <ArticleCard
                                     title={article.title}
                                     description={article.description}

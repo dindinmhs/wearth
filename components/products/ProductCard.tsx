@@ -3,13 +3,13 @@ import Image from 'next/image';
 
 export const ProductCard = ({ name, price, images, brand, condition }: ProductType) => {
   return (
-    <div className="rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 hover:shadow-xl bg-white">
-      <div className="relative h-48 w-full">
+    <div className="overflow-hidden group cursor-pointer transition-all duration-300">
+      <div className="relative h-48 w-full overflow-hidden rounded-lg">
         <Image
           src={images[0]}
           alt={name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          className="object-cover transition-transform duration-300 group-hover:scale-110"
         />
         {condition && (
           <div className="absolute top-3 left-3">
@@ -19,7 +19,7 @@ export const ProductCard = ({ name, price, images, brand, condition }: ProductTy
           </div>
         )}
       </div>
-      <div className="p-4">
+      <div className="px-2 py-3">
         {brand && (
           <p className="text-gray-500 text-sm mb-1">{brand}</p>
         )}

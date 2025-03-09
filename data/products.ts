@@ -110,5 +110,71 @@ export const Products : ProductType[] = [
     ],
     sizes: ['S', 'M', 'L', 'XL']
     // No condition property for this product
-  }
+  },
+  {
+    id: '6',
+    name: 'T Shirt',
+    price: 899000,
+    images: [
+      '/images/products/Windbreaker.jpg',
+      'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879476/I_m_Just_Here_for_the_Fireworks_Graphic_Tee_-_White___3XL_wlbxm2.jpg',
+      'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879483/Mens_Short_Sleeve_The_Wizard_of_Oz_Graphic_T-Shirt___Black___Regular_Medium___Shirts_Tops_Graphic_T-shirts_viv5wo.jpg'
+    ],
+    category: 'Outerwear',
+    brand: 'EcoWear',
+    description: 'A lightweight windbreaker made from recycled polyester sourced from ocean plastic. This versatile piece features water-resistant properties and packs into its own pocket, making it perfect for unpredictable weather.',
+    features: [
+      'Made from recycled ocean plastic',
+      'Water-resistant coating',
+      'Packs into pocket',
+      'Reflective details for visibility',
+      'Breathable mesh lining'
+    ],
+    sizes: ['S', 'M', 'L', 'XL']
+    // No condition property for this product
+  },
+  {
+    id: '6',
+    name: 'T Shirt',
+    price: 899000,
+    images: [
+      '/images/products/Windbreaker.jpg',
+      'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879476/I_m_Just_Here_for_the_Fireworks_Graphic_Tee_-_White___3XL_wlbxm2.jpg',
+      'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879483/Mens_Short_Sleeve_The_Wizard_of_Oz_Graphic_T-Shirt___Black___Regular_Medium___Shirts_Tops_Graphic_T-shirts_viv5wo.jpg'
+    ],
+    category: 'Outerwear',
+    brand: 'EcoWear',
+    description: 'A lightweight windbreaker made from recycled polyester sourced from ocean plastic. This versatile piece features water-resistant properties and packs into its own pocket, making it perfect for unpredictable weather.',
+    features: [
+      'Made from recycled ocean plastic',
+      'Water-resistant coating',
+      'Packs into pocket',
+      'Reflective details for visibility',
+      'Breathable mesh lining'
+    ],
+    sizes: ['S', 'M', 'L', 'XL']
+    // No condition property for this product
+  },
+  {
+    id: '6',
+    name: 'T Shirt',
+    price: 899000,
+    images: [
+      '/images/products/Windbreaker.jpg',
+      'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879476/I_m_Just_Here_for_the_Fireworks_Graphic_Tee_-_White___3XL_wlbxm2.jpg',
+      'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879483/Mens_Short_Sleeve_The_Wizard_of_Oz_Graphic_T-Shirt___Black___Regular_Medium___Shirts_Tops_Graphic_T-shirts_viv5wo.jpg'
+    ],
+    category: 'Outerwear',
+    brand: 'EcoWear',
+    description: 'A lightweight windbreaker made from recycled polyester sourced from ocean plastic. This versatile piece features water-resistant properties and packs into its own pocket, making it perfect for unpredictable weather.',
+    features: [
+      'Made from recycled ocean plastic',
+      'Water-resistant coating',
+      'Packs into pocket',
+      'Reflective details for visibility',
+      'Breathable mesh lining'
+    ],
+    sizes: ['S', 'M', 'L', 'XL']
+    // No condition property for this product
+  },
 ];

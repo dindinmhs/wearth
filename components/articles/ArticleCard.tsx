@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { IoArrowForward } from 'react-icons/io5'
 
 interface ArticleCardProps {
   title: string
@@ -37,19 +38,23 @@ export const ArticleCard = ({ title, description, image, date, otherStyle }: Art
 
 export const ArticleBentoCard = ({ title, image, date, otherStyle }: ArticleCardProps) => {
   return (
-      <div className={`relative rounded-2xl overflow-hidden shadow-md transition-transform duration-300 ${otherStyle}`}>
-          <div className="relative w-full h-full">
+      <div className={`relative rounded-2xl overflow-hidden group transition-transform ${otherStyle}`}>
+          <div className="relative w-full h-full overflow-hidden">
               <Image
                   src={image}
                   alt={title}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 duration-300"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <IoArrowForward size={25} className='absolute top-2 right-2 text-white group-hover:-rotate-45 duration-300'/>
           </div>
-          <div className="absolute bottom-0 left-0 p-4 bg-black bg-opacity-60 w-full">
+          <div className="absolute bottom-0 left-0 p-4 w-full transition-all">
               <p className="text-sm text-gray-300">{date}</p>
               <h3 className="text-lg font-semibold text-white">{title}</h3>
           </div>
       </div>
   );
 };
+
+

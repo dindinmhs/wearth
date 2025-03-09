@@ -118,8 +118,7 @@ import Link from 'next/link';
 
 export const HeroSection = () => {
     return (
-        <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            {/* Background Parallax */}
+        <section className="relative h-[75vh] flex items-center justify-center overflow-hidden container rounded-lg mx-auto">
             <div 
                 className="absolute inset-0 bg-fixed bg-cover bg-center"
                 style={{

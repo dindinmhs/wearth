@@ -30,6 +30,7 @@ const HomePage = () => {
                         ))}
                     </div>
                 </div>
+                
                 {/* Articles Section */}
                 <div className="container mx-auto">
                     <div className="mb-8">

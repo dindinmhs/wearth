@@ -20,8 +20,13 @@ export const Products : ProductType[] = [
       'Zero plastic packaging',
       'Fair trade certified'
     ],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    condition: 'New'
+    size: 'M',
+    condition: 'New',
+    seller: {
+      name: 'EcoFashion Store',
+      avatar: '/images/avatars/seller1.jpg',
+      joinDate: 'Jan 2022'
+    }
   },
   {
     id: '2',
@@ -42,8 +47,13 @@ export const Products : ProductType[] = [
       'Eco-friendly washing process',
       'Biodegradable buttons and rivets'
     ],
-    sizes: ['26', '27', '28', '29', '30', '31', '32'],
-    condition: 'Like New'
+    size: '28',
+    condition: 'Like New',
+    seller: {
+      name: 'Sustainable Closet',
+      avatar: '/images/avatars/seller2.jpg',
+      joinDate: 'Mar 2022'
+    }
   },
   {
     id: '3',
@@ -64,8 +74,13 @@ export const Products : ProductType[] = [
       'UV protection',
       'Wrinkle-resistant'
     ],
-    sizes: ['XS', 'S', 'M', 'L', 'XL']
-    // No condition property for this product
+    size: 'S',
+    condition: 'New',
+    seller: {
+      name: 'Green Wardrobe',
+      avatar: '/images/avatars/seller3.jpg',
+      joinDate: 'Nov 2021'
+    }
   },
   {
     id: '4',
@@ -86,8 +101,13 @@ export const Products : ProductType[] = [
       'Reflective details for visibility',
       'Breathable mesh lining'
     ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    condition: 'Gently Used'
+    size: 'L',
+    condition: 'Gently Used',
+    seller: {
+      name: 'EcoFashion Store',
+      avatar: '/images/avatars/seller1.jpg',
+      joinDate: 'Jan 2022'
+    }
   },
   {
     id: '5',
@@ -108,8 +128,13 @@ export const Products : ProductType[] = [
       'Reflective details for visibility',
       'Breathable mesh lining'
     ],
-    sizes: ['S', 'M', 'L', 'XL']
-    // No condition property for this product
+    size: 'M',
+    condition: 'New',
+    seller: {
+      name: 'Sustainable Closet',
+      avatar: '/images/avatars/seller2.jpg',
+      joinDate: 'Apr 2022'
+    }
   },
   {
     id: '6',
@@ -130,11 +155,16 @@ export const Products : ProductType[] = [
       'Reflective details for visibility',
       'Breathable mesh lining'
     ],
-    sizes: ['S', 'M', 'L', 'XL']
-    // No condition property for this product
+    size: 'S',
+    condition: 'Like New',
+    seller: {
+      name: 'Green Wardrobe',
+      avatar: '/images/avatars/seller3.jpg',
+      joinDate: 'Nov 2021'
+    }
   },
   {
-    id: '6',
+    id: '7',
     name: 'T Shirt',
     price: 899000,
     images: [
@@ -152,11 +182,16 @@ export const Products : ProductType[] = [
       'Reflective details for visibility',
       'Breathable mesh lining'
     ],
-    sizes: ['S', 'M', 'L', 'XL']
-    // No condition property for this product
+    size: 'XL',
+    condition: 'Gently Used',
+    seller: {
+      name: 'EcoFashion Store',
+      avatar: '/images/avatars/seller1.jpg',
+      joinDate: 'Jan 2022'
+    }
   },
   {
-    id: '6',
+    id: '8',
     name: 'T Shirt',
     price: 899000,
     images: [
@@ -174,7 +209,12 @@ export const Products : ProductType[] = [
       'Reflective details for visibility',
       'Breathable mesh lining'
     ],
-    sizes: ['S', 'M', 'L', 'XL']
-    // No condition property for this product
+    size: 'L',
+    condition: 'New',
+    seller: {
+      name: 'Sustainable Closet',
+      avatar: '/images/avatars/seller2.jpg',
+      joinDate: 'Mar 2022'
+    }
   },
 ];

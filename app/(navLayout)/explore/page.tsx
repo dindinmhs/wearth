@@ -138,12 +138,12 @@ const ExplorePage = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
                 {selected=='Product'?
                 Products.map((product) => (
-                <Link href={'/products/1'}>
+                <Link href={'/products/1'} key={product.id}> 
                     <ProductCard {...product} />
                 </Link>
                 )):
                     Articles.map((article, index) => (
-                        <Link href={'/articles/environmental-impact-fast-fashion'}>
+                        <Link href={'/articles/environmental-impact-fast-fashion'} key={index}>
                             <ArticleCard
                                 title={article.title}
                                 description={article.description}

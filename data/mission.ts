@@ -2,7 +2,7 @@ export const missions = [
   {
     id: 1,
     title: "First Purchase",
-    description: "Make your first purchase on Wearth",
+    description: "Make your first purchase on Sustyle",
     icon: "/images/mission/shop.png",
     reward: 50,
     type: "one-time",

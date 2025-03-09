@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { Chip, Logo, Notify, ProfileDropdown } from "../atoms"
-import { SearchInput, SpringModal } from "../molecules"
-import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoCompass, IoCompassOutline, IoTrophy, IoTrophyOutline } from "react-icons/io5"
+import { SearchInput, SpringModal, DragCloseDrawer } from "../molecules"
+import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoCompass, IoCompassOutline, IoPerson, IoPersonOutline, IoTrophy, IoTrophyOutline } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
 import { forestGreen } from "@/color"
 import Link from "next/link"
@@ -204,7 +204,7 @@ export const NavbarDashboard = () => {
                                                     </span>
                                                 </div>
                                             </div>
-                                         </Link>
+                                        </Link>
                                     ))}
                                     
                                 </div>
@@ -230,6 +230,8 @@ export const NavbarMobile = () => {
     const pathname = usePathname(); 
     const pathSegment = pathname.split('/')[1];
     const [selected, setSelected] = useState(pathSegment);
+    const [open, setOpen] = useState<null|number>(null);
+    const { isAuthenticated, login } = useAuthStore();
     
     const tabs = [
         {
@@ -253,22 +255,134 @@ export const NavbarMobile = () => {
             iconActive : <IoTrophy className="w-full h-full" color={forestGreen}/>
         },
     ];
+    
+    const handleLogin = () => {
+        login(true);
+        setOpen(null);
+    };
+    
     return (
-        <div className="flex sm:hidden fixed h-fit bottom-0 left-0 right-0 justify-around bg-white z-10 pt-2">
-            {tabs.map((tab) => (
-                <Chip
-                type="circle"
-                isLink
-                text={tab.title}
-                selected={selected === tab.title.toLocaleLowerCase()}
-                setSelected={setSelected}
-                key={tab.title}
-                iconActive={tab.iconActive}
-                iconDefault={tab.iconDefault}
-                />
-            ))}
-            <ProfileDropdown/>
-        </div>
-    )
-}
+        <>
+            <div className="flex sm:hidden fixed h-fit bottom-0 left-0 right-0 justify-around bg-white z-10 pt-2 pb-1 border-t border-gray-100 shadow-lg">
+                {tabs.map((tab) => (
+                    <Chip
+                    type="circle"
+                    isLink
+                    text={tab.title}
+                    selected={selected === tab.title.toLocaleLowerCase()}
+                    setSelected={setSelected}
+                    key={tab.title}
+                    iconActive={tab.iconActive}
+                    iconDefault={tab.iconDefault}
+                    />
+                ))}
+                {isAuthenticated ? (
+                    <ProfileDropdown />
+                ) : (
+                    <div onClick={() => setOpen(0)}>
+                        <Chip
+                            type="circle"
+                            text="Login"
+                            selected={false}
+                            setSelected={() => {}}
+                            iconDefault={<IoPersonOutline className="w-full h-full" />}
+                            iconActive={<IoPerson className="w-full h-full" color={forestGreen} />}
+                        />
+                    </div>
+                )}
+            </div>
+
+            <DragCloseDrawer open={open === 0} setOpen={setOpen}>
+                <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-6 text-center">Login to Sustyle</h3>
+                    
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input 
+                                type="email" 
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Enter your email"
+                            />
+                        </div>
+                        
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input 
+                                type="password" 
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Enter your password"
+                            />
+                        </div>
+                        
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <input type="checkbox" id="remember" className="mr-2" />
+                                <label htmlFor="remember" className="text-sm text-gray-600">Remember me</label>
+                            </div>
+                            <a href="#" className="text-sm text-green-600">Forgot password?</a>
+                        </div>
+                        
+                        <button 
+                            onClick={handleLogin}
+                            className="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
+                        >
+                            Login
+                        </button>
+                        
+                        <div className="text-center text-sm text-gray-600">
+                            Dont have an account? <button onClick={() => setOpen(1)} className="text-green-600 font-medium">Sign up</button>
+                        </div>
+                    </div>
+                </div>
+            </DragCloseDrawer>
+            
+            <DragCloseDrawer open={open === 1} setOpen={setOpen}>
+                <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-6 text-center">Create an Account</h3>
+                    
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input 
+                                type="text" 
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Enter your full name"
+                            />
+                        </div>
+                        
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input 
+                                type="email" 
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Enter your email"
+                            />
+                        </div>
+                        
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input 
+                                type="password" 
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Create a password"
+                            />
+                        </div>
+                        
+                        <button 
+                            onClick={handleLogin}
+                            className="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
+                        >
+                            Sign Up
+                        </button>
+                        
+                        <div className="text-center text-sm text-gray-600">
+                            Already have an account? <button onClick={() => setOpen(0)} className="text-green-600 font-medium">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </DragCloseDrawer>
+        </>
+    );
+};
 

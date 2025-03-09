@@ -24,6 +24,7 @@ export const Chip = ({
   counter?: number;
   isLink?: boolean;
   className?: string;
+  onClick?: () => void;
 }) => {
   const router = useRouter()
   const handleClick = () => { 

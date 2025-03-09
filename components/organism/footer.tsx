@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const FooterSection = () => {
     return (
-        <div className="bg-gray-900 text-white py-12">
+        <div className="bg-black text-white py-12">
             <footer className="max-w-7xl mx-auto px-6">
                 <div className="flex justify-between flex-wrap gap-8">
                     {/* Logo Section */}

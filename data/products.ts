@@ -3,70 +3,75 @@ import { ProductType } from "@/types";
 export const Products: ProductType[] = [
   {
     id: "1",
-    name: "Organic Cotton Oversized T-Shirt",
+    name: "Patagonia Organic Cotton Oversized T-Shirt",
     price: 299000,
     images: [
-      "https://res.cloudinary.com/dokktqvdq/image/upload/v1740879483/Mens_Short_Sleeve_The_Wizard_of_Oz_Graphic_T-Shirt___Black___Regular_Medium___Shirts_Tops_Graphic_T-shirts_viv5wo.jpg",
+      "https://res.cloudinary.com/dokktqvdq/image/upload/v1741621119/sustyle/hoe2elzvpo9j0ipvvvl8.jpg",
+      "https://res.cloudinary.com/dokktqvdq/image/upload/v1741620936/sustyle/so324xe5ck7613vyp5zz.png",
+      "https://res.cloudinary.com/dokktqvdq/image/upload/v1741619125/sustyle/afjeq2v4vcebeeyqmc7a.png",
+      "https://res.cloudinary.com/dokktqvdq/image/upload/v1741619124/sustyle/h9qyg0zcrvm6rstwklfh.png",
+      "https://res.cloudinary.com/dokktqvdq/image/upload/v1741619122/sustyle/so5z996saw7fgj6vvpp1.png",
     ],
     category: "T-Shirts",
-    brand: "EcoWear",
+    brand: "Patagonia",
     description:
-      "Made from 100% organic cotton, this oversized t-shirt combines comfort with sustainability. The breathable fabric ensures all-day comfort while minimizing environmental impact. Each piece is crafted using water-saving techniques and natural dyes.",
+      "Made from 100% organic cotton, this oversized t-shirt combines comfort with sustainability. Patagonia ensures water-saving techniques and natural dyes for a minimal environmental impact.",
     features: [
-      "Made from 100% organic cotton",
+      "100% organic cotton",
       "Water-saving production process",
       "Natural dye coloring",
+      "Fair Trade Certified™",
       "Zero plastic packaging",
-      "Fair trade certified",
     ],
     size: "M",
     condition: "New",
     seller: {
-      name: "EcoFashion Store",
-      avatar: "/images/avatars/seller1.jpg",
+      name: "Jonathan Smith",
+      avatar:
+        "https://res.cloudinary.com/dokktqvdq/image/upload/v1741618009/sustyle/t75kxckje24qzo18vhiv.jpg",
       joinDate: "Jan 2022",
     },
     is3d: true,
   },
   {
     id: "2",
-    name: "Recycled Denim High-Waist Jeans",
+    name: "Levi's WellThread Recycled Denim High-Waist Jeans",
     price: 599000,
     images: [
       "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610172/sustyle/n1pd3ngbljftrfolumh9.webp",
     ],
     category: "Pants",
-    brand: "GreenDenim",
+    brand: "Levi's",
     description:
-      "These high-waist jeans are crafted from recycled denim and organic cotton blend. Each pair saves approximately 1,800 gallons of water compared to traditional jean production. Features a modern cut with sustainable style.",
+      "Levi’s WellThread collection features high-waist jeans crafted from recycled denim and organic cotton blend, saving approximately 1,800 gallons of water per pair.",
     features: [
       "Made from 80% recycled denim",
-      "Saves 1,800 gallons of water in production",
-      "Reinforced stitching for durability",
+      "Saves 1,800 gallons of water",
       "Eco-friendly washing process",
       "Biodegradable buttons and rivets",
+      "Reinforced stitching for durability",
     ],
     size: "28",
     condition: "Like New",
     seller: {
-      name: "Sustainable Closet",
+      name: "Emily Johnson",
       avatar: "/images/avatars/seller2.jpg",
       joinDate: "Mar 2022",
     },
   },
   {
     id: "3",
-    name: "Bamboo Fiber Maxi Dress",
+    name: "Tentree Bamboo Fiber Maxi Dress",
     price: 799000,
     images: [
       "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610172/sustyle/mk1s5f3imgag0sveb6eq.jpg",
     ],
     category: "Dresses",
-    brand: "NatureFashion",
+    brand: "Tentree",
     description:
-      "This elegant maxi dress is made from sustainable bamboo fiber, known for its silky smooth texture and natural temperature regulation. Perfect for both casual and semi-formal occasions while maintaining eco-conscious style.",
+      "This elegant maxi dress by Tentree is made from sustainable bamboo fiber, known for its silky smooth texture and natural temperature regulation.",
     features: [
-      "Sustainable bamboo fiber material",
+      "Sustainable bamboo fiber",
       "Natural temperature regulation",
       "Anti-bacterial properties",
       "UV protection",
@@ -75,22 +80,22 @@ export const Products: ProductType[] = [
     size: "S",
     condition: "New",
     seller: {
-      name: "Green Wardrobe",
+      name: "Michael Brown",
       avatar: "/images/avatars/seller3.jpg",
       joinDate: "Nov 2021",
     },
   },
   {
     id: "4",
-    name: "Recycled Polyester Windbreaker",
+    name: "Patagonia Recycled Polyester Windbreaker",
     price: 899000,
     images: [
       "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610173/sustyle/qbhpshyh4yn9uzeg5upr.jpg",
     ],
     category: "Outerwear",
-    brand: "EcoWear",
+    brand: "Patagonia",
     description:
-      "A lightweight windbreaker made from recycled polyester sourced from ocean plastic. This versatile piece features water-resistant properties and packs into its own pocket, making it perfect for unpredictable weather.",
+      "A lightweight windbreaker made from recycled polyester sourced from ocean plastic. This versatile piece features water-resistant properties and packs into its own pocket.",
     features: [
       "Made from recycled ocean plastic",
       "Water-resistant coating",
@@ -101,7 +106,7 @@ export const Products: ProductType[] = [
     size: "L",
     condition: "Gently Used",
     seller: {
-      name: "EcoFashion Store",
+      name: "Sarah Williams",
       avatar: "/images/avatars/seller1.jpg",
       joinDate: "Jan 2022",
     },
@@ -109,38 +114,38 @@ export const Products: ProductType[] = [
   },
   {
     id: "5",
-    name: "Organic Cotton Hoodie",
+    name: "Pact Organic Cotton Hoodie",
     price: 699000,
     images: [
       "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610173/sustyle/ey9g0npcarqumffknpke.jpg",
     ],
     category: "Hoodies",
-    brand: "EcoComfort",
+    brand: "Pact",
     description: "A soft and breathable hoodie made from 100% organic cotton.",
     features: [
-      "Made from organic cotton",
+      "100% organic cotton",
       "Breathable and moisture-wicking",
       "Ribbed cuffs and hem",
-      "No synthetic fibers",
       "Eco-friendly dyes",
+      "No synthetic fibers",
     ],
     size: "M",
     condition: "New",
     seller: {
-      name: "Sustainable Closet",
+      name: "Daniel Martinez",
       avatar: "/images/avatars/seller2.jpg",
       joinDate: "Apr 2022",
     },
   },
   {
     id: "6",
-    name: "Recycled Wool Sweater",
+    name: "Woolrich Recycled Wool Sweater",
     price: 799000,
     images: [
       "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610173/sustyle/rbneuj8giodqk5bubog1.jpg",
     ],
     category: "Sweaters",
-    brand: "GreenKnit",
+    brand: "Woolrich",
     description:
       "A warm sweater made from 100% recycled wool for comfort and sustainability.",
     features: [
@@ -153,7 +158,7 @@ export const Products: ProductType[] = [
     size: "L",
     condition: "Like New",
     seller: {
-      name: "Green Wardrobe",
+      name: "Olivia Anderson",
       avatar: "/images/avatars/seller3.jpg",
       joinDate: "Nov 2021",
     },
@@ -161,13 +166,13 @@ export const Products: ProductType[] = [
   },
   {
     id: "7",
-    name: "Sustainable Linen Shirt",
+    name: "Everlane Sustainable Linen Shirt",
     price: 499000,
     images: [
       "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610173/sustyle/nv48r9ohgpdkyyfdfget.jpg",
     ],
     category: "Shirts",
-    brand: "EcoStyle",
+    brand: "Everlane",
     description:
       "A lightweight linen shirt perfect for casual and semi-formal wear.",
     features: [
@@ -175,25 +180,25 @@ export const Products: ProductType[] = [
       "Naturally breathable",
       "Handwoven fabric",
       "Biodegradable buttons",
-      "Fair trade certified",
+      "Fair Trade Certified™",
     ],
     size: "XL",
     condition: "New",
     seller: {
-      name: "EcoFashion Store",
+      name: "James Wilson",
       avatar: "/images/avatars/seller1.jpg",
       joinDate: "Jan 2022",
     },
   },
   {
     id: "8",
-    name: "Recycled Cotton Joggers",
+    name: "Patagonia Recycled Cotton Joggers",
     price: 649000,
     images: [
       "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610172/sustyle/yncvbhrdofs4t2su803c.jpg",
     ],
     category: "Pants",
-    brand: "EcoWear",
+    brand: "Patagonia",
     description:
       "Comfortable joggers made from recycled cotton, designed for everyday wear.",
     features: [
@@ -206,7 +211,7 @@ export const Products: ProductType[] = [
     size: "L",
     condition: "New",
     seller: {
-      name: "Sustainable Closet",
+      name: "Sophia Miller",
       avatar: "/images/avatars/seller2.jpg",
       joinDate: "Mar 2022",
     },

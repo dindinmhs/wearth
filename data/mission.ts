@@ -3,44 +3,44 @@ export const missions = [
     id: 1,
     title: "First Purchase",
     description: "Make your first purchase on Sustyle",
-    icon: "/images/mission/shop.png",
+    icon: "https://res.cloudinary.com/dokktqvdq/image/upload/v1741615750/sustyle/qtplo3u6m5xctsn0kpmj.png",
     reward: 50,
     type: "one-time",
     status: "ready",
     progress: 0,
-    target: 1
+    target: 1,
   },
   {
     id: 2,
     title: "Fashion Explorer",
     description: "Purchase 5 sustainable fashion items",
-    icon: "/images/mission/shop.png",
+    icon: "https://res.cloudinary.com/dokktqvdq/image/upload/v1741615751/sustyle/gezxyaurvkywvsegx5sk.png",
     reward: 100,
     type: "milestone",
     status: "in-progress",
     progress: 3,
-    target: 5
+    target: 5,
   },
   {
     id: 3,
     title: "Trade Pioneer",
     description: "Complete your first product exchange",
-    icon: "/images/mission/exchange.png",
+    icon: "https://res.cloudinary.com/dokktqvdq/image/upload/v1741615750/sustyle/kupmul7mqko5ipnzmhqg.png",
     reward: 75,
     type: "one-time",
     status: "completed",
     progress: 1,
-    target: 1
+    target: 1,
   },
   {
     id: 4,
     title: "Trade Master",
     description: "Complete 10 product exchanges",
-    icon: "/images/mission/exchange.png",
+    icon: "https://res.cloudinary.com/dokktqvdq/image/upload/v1741615751/sustyle/h6rruuh31lt5kxprrs0e.png",
     reward: 200,
     type: "milestone",
     status: "in-progress",
     progress: 6,
-    target: 10
-  }
+    target: 10,
+  },
 ];

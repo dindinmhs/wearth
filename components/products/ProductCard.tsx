@@ -19,8 +19,8 @@ export const ProductCard = ({ name, price, images, brand, condition, is3d, size 
           </div>
         )}
         {is3d && (
-          <div className="absolute top-3 right-3">
-            <span className="bg-forest text-white text-xs font-bold p-3 rounded-md">
+          <div className="absolute top-0 right-0">
+            <span className="bg-[#2c6e49] text-white text-xs font-medium px-2 py-1 rounded-bl-md rounded-tr-md">
               3D
             </span>
           </div>

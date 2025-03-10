@@ -24,7 +24,7 @@ export default function CheckoutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
             {/* Left Column - Product Details */}
-            <div className="lg:col-span-8 space-y-3 md:space-y-4">
+            <div className="lg:col-span-8 space-y-3 md:space-y-4 lg:sticky lg:top-20 lg:self-start">
               {/* Address Section */}
               <section className="bg-white rounded-lg md:rounded-xl p-4 md:p-6 shadow-sm">
                 <div className="flex items-center gap-4 mb-4">

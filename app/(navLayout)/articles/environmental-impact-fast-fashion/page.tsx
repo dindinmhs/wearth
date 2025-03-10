@@ -32,15 +32,19 @@ export default function Page() {
   return (
     <>
       <NavbarDashboard />
-      <main className="pt-20 pb-16 bg-white min-h-screen">
+      <main className="pb-16 bg-gray-50 min-h-screen">
         <div className="max-w-3xl mx-auto px-4">
-          <BackButton href="/" />
-          <Breadcrumb 
+          <div className="pt-20 flex gap-2 md:flex-row flex-col md:items-center md:mb-6">
+            <BackButton/>
+            <span className="md:block hidden">/</span>
+            <Breadcrumb 
               items={[
                 { label: 'Home', href: '/' },
+                { label: 'Explore', href: '/explore' },
                 { label: article.title }
               ]} 
             />
+          </div>
           <article>
             {/* Article Header */}
             <header className="mb-8">

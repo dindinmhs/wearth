@@ -24,7 +24,8 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               {item.label}
             </Link>
           ) : (
-            <span className="text-gray-900 font-medium truncate ml-1">{item.label}</span>
+            <span className="text-gray-900 font-medium ml-1 truncate md:truncate-none">{item.label}</span>
+
           )}
         </div>
       ))}

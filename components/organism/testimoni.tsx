@@ -61,8 +61,11 @@ export const ReviewSection = () => {
             {/* Bagian Teks */}
             <div className="flex flex-col h-fit gap-2 md:h-[400px]">
                 <div className="flex flex-col gap-3 flex-1 justify-center">
-                    <h1 className="text-3xl lg:text-6xl font-bold">What Our Customers Think</h1>
-                    <p className="mt-2 text-gray-600 lg:text-xl text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt tempore beatae distinctio repellendus aliquam veritatis quibusdam atque facilis odit, itaque dolore officia, culpa accusamus ad suscipit quidem ipsum. Corporis, odio.</p>
+                <h1 className="text-3xl lg:text-6xl font-bold">What Our Community Says</h1>
+                <p className="mt-2 text-gray-600 lg:text-xl text-base">
+                    Hear from our customers who are embracing sustainable fashion — one thoughtful choice at a time.
+                </p>
+
                 </div>
                 {/* Progress Indicator */}
                 <div className="w-full flex gap-2 p-2">

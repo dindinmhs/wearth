@@ -20,15 +20,15 @@ export const ArticleCard = ({ title, description, image, date, otherStyle }: Art
           className="object-cover group-hover:scale-105 transition-transform duration-300"
           priority
         />
-      </div>
-      <div className="p-4">
-        <time className="text-gray-500 text-sm mb-1 block">
+        <time className="text-gray-50 text-sm mb-1 block absolute top-2 left-2 bg-black/50 px-3 rounded-full py-1">
           {date}
         </time>
-        <h3 className="text-gray-900 font-medium mb-2">
+      </div>
+      <div className="py-2 px-1">
+        <h3 className="text-gray-900 font-medium mb-1">
           {title}
         </h3>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 text-sm line-clamp-1">
           {description}
         </p>
       </div>

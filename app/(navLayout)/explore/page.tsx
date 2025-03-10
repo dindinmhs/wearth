@@ -80,7 +80,7 @@ const ExplorePage = () => {
             <div className="flex justify-between items-center mt-4 md:mt-6">
                 <h2 className="text-xl font-semibold hidden md:block">All {selected}s</h2>
                 <div className="hidden md:block">
-                    <SelectDropdown 
+                    {selected=='Product'?<SelectDropdown 
                         labelPlace="left" 
                         title="Sort By" 
                         items={[
@@ -90,7 +90,16 @@ const ExplorePage = () => {
                             'Highest Price',
                             'Most Expensive',
                         ]}
-                    />
+                    />:
+                    <SelectDropdown 
+                    labelPlace="left" 
+                    title="Sort By" 
+                    items={[
+                        'Latest Added',
+                        'Earliest Added',
+                    ]}
+                />
+                    }
                 </div>
                 <div className="md:hidden flex gap-3 w-full">
                     <button onClick={()=>setOpen(0)} className="flex-1 py-2 px-4 bg-gray-100 rounded-lg flex items-center justify-center gap-2">
@@ -114,24 +123,38 @@ const ExplorePage = () => {
                     </div>
                 </DragCloseDrawer>
                 <DragCloseDrawer open={open == 1} setOpen={setOpen}>
-                    <div className="p-4">
-                        <h3 className="text-xl font-semibold mb-4">Sort By</h3>
-                        <div className="flex flex-col gap-3">
-                            {['Latest Added', 'Earliest Added', 'Cheapest First', 'Highest Price', 'Most Expensive'].map((item, index) => (
-                                <button 
-                                    key={index} 
-                                    className="text-left py-3 px-4 border border-gray-200 rounded-lg hover:bg-gray-50 active:bg-gray-100"
-                                    onClick={() => {
-                                        // Handle sort selection
-                                        console.log(`Sorting by: ${item}`);
-                                        // Close the drawer after selection
-                                        setOpen(null);
-                                    }}
-                                >
-                                    {item}
-                                </button>
-                            ))}
+                    <div className="p-4 h-full flex-col flex justify-between">
+                        <div>
+                            <h3 className="text-xl font-semibold mb-4">Sort By</h3>
+                            <div className="flex flex-col gap-3">
+                                {selected=='Product'?['Latest Added', 'Earliest Added', 'Cheapest First', 'Highest Price', 'Most Expensive'].map((item, index) => (
+                                    <button 
+                                        key={index} 
+                                        className="text-left py-3 px-4 border border-gray-200 rounded-lg hover:bg-gray-50 active:bg-gray-100"
+                                        onClick={() => {
+                                            setOpen(null);
+                                        }}
+                                    >
+                                        {item}
+                                    </button>
+                                )):
+                                ['Latest Added', 'Earliest Added'].map((item, index) => (
+                                    <button 
+                                        key={index} 
+                                        className="text-left py-3 px-4 border border-gray-200 rounded-lg hover:bg-gray-50 active:bg-gray-100"
+                                        onClick={() => {
+                                            setOpen(null);
+                                        }}
+                                    >
+                                        {item}
+                                    </button>
+                                ))
+                                }
+                            </div>
                         </div>
+                            <button className="btn w-full bg-green-600 text-white py-3 rounded-lg font-medium mt-4">
+                                Apply Filters
+                            </button>
                     </div>
                 </DragCloseDrawer>
             </div>

@@ -9,4 +9,5 @@ export interface ProductType {
     features: string[];
     sizes: string[]
     condition? : string;
+    is3d? : true;
 }

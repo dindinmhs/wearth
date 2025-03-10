@@ -21,7 +21,8 @@ export const Products : ProductType[] = [
       'Fair trade certified'
     ],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    condition: 'New'
+    condition: 'New',
+    is3d : true,
   },
   {
     id: '2',
@@ -43,7 +44,7 @@ export const Products : ProductType[] = [
       'Biodegradable buttons and rivets'
     ],
     sizes: ['26', '27', '28', '29', '30', '31', '32'],
-    condition: 'Like New'
+    condition: 'Like New',
   },
   {
     id: '3',
@@ -64,8 +65,8 @@ export const Products : ProductType[] = [
       'UV protection',
       'Wrinkle-resistant'
     ],
-    sizes: ['XS', 'S', 'M', 'L', 'XL']
-    // No condition property for this product
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    is3d : true
   },
   {
     id: '4',
@@ -87,7 +88,7 @@ export const Products : ProductType[] = [
       'Breathable mesh lining'
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    condition: 'Gently Used'
+    condition: 'Gently Used',
   },
   {
     id: '5',
@@ -134,7 +135,7 @@ export const Products : ProductType[] = [
     // No condition property for this product
   },
   {
-    id: '6',
+    id: '7',
     name: 'T Shirt',
     price: 899000,
     images: [
@@ -156,7 +157,7 @@ export const Products : ProductType[] = [
     // No condition property for this product
   },
   {
-    id: '6',
+    id: '8',
     name: 'T Shirt',
     price: 899000,
     images: [

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { DropDown } from "../molecules";
 import { IconType } from "react-icons";
+import Link from "next/link";
+import { IoArrowForward } from "react-icons/io5";
 
 interface Props {
     title : string;
@@ -116,5 +118,20 @@ export const ButtonSection = ({icon, title, isActive, handleClick}:SectionProps)
             {icon}
             <h4 className={`text-lg font-medium ${isActive?'text-forest':'text-black'}`}>{title}</h4>
         </button>
+    )
+}
+
+interface ButtonLinkProps {
+    href : string;
+    title : string;
+    otherStyle? : string;
+}
+
+export const ButtonLink = ({href,title,otherStyle}:ButtonLinkProps) => {
+    return (
+        <Link className={`bg-gray-50 text-black hover:text-forest font-bold px-6 py-3 rounded-full group flex gap-2 items-center transition w-fit mx-auto ${otherStyle}`} href={href}>
+            <h3>{title}</h3>
+            <IoArrowForward size={25} className='group-hover:-rotate-45 duration-150'/>
+        </Link>
     )
 }

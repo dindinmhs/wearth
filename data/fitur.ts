@@ -1,1 +1,10 @@
-export const fiture = ['e-commerce', 'artikel', 'mission']
+export const fiture = [
+    {
+        title : 'Home',
+        src : '/'
+    },
+    {
+        title : 'Explore',
+        src : '/explore'
+    },
+]

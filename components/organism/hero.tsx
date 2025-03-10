@@ -4,12 +4,12 @@ export const HeroSection = () => {
     return (
         <section className="relative h-[75vh] flex items-center justify-center overflow-hidden container rounded-lg mx-auto">
             <div 
-                className="absolute inset-0 bg-fixed bg-cover bg-center"
+                className="absolute inset-0 bg-fixed bg-cover bg-top"
                 style={{
-                    backgroundImage: `url('https://res.cloudinary.com/dokktqvdq/image/upload/v1741482239/15301084332_1_qku0kl.jpg')`
+                    backgroundImage: `url('https://res.cloudinary.com/dokktqvdq/image/upload/v1741618221/69575652141_1_dwn1or.png')`
                 }}
             >
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
             </div>
 
             {/* Content */}

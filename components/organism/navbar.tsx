@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Chip, Logo, Notify, ProfileDropdown } from "../atoms"
+import { Chip, Logo, Notify, ProfileDropdown, Tooltip } from "../atoms"
 import { SearchInput, SpringModal, DragCloseDrawer } from "../molecules"
 import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoCompass, IoCompassOutline, IoPerson, IoPersonOutline, IoTrophy, IoTrophyOutline } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
@@ -66,30 +66,62 @@ export const NavbarDashboard = () => {
                 {!isAuthenticated && <div className='md:flex gap-3 w-fit h-full items-center hidden'>
                     <button 
                         onClick={()=>setModalOpen(0)} 
-                        className='whitespace-nowrap px-4 py-2 border border-forest text-forest font-medium rounded-xl hover:bg-green-50 transition-colors'
+                        className='whitespace-nowrap px-4 h-full border border-forest text-forest font-medium rounded-full hover:bg-green-50 transition-colors'
                     >
                         Sign Up
                     </button>
                     <button 
                         onClick={()=>setModalOpen(1)} 
-                        className='whitespace-nowrap px-4 py-2 bg-forest text-white font-medium rounded-xl hover:bg-forest/90 transition-colors shadow-sm hover:shadow-md'
+                        className='whitespace-nowrap px-4 h-full bg-forest text-white font-medium rounded-full hover:bg-forest/90 transition-colors shadow-sm hover:shadow-md'
                     >
                         Sign In
                     </button>
                     <SpringModal isOpen={modalOpen==0} setIsOpen={setModalOpen}><div><SignupForm setOpen={setModalOpen}/></div></SpringModal>
                     <SpringModal isOpen={modalOpen==1} setIsOpen={setModalOpen}><div><SigninForm setOpen={setModalOpen}/></div></SpringModal>
                 </div>}
+                {isAuthenticated&&<div className='block md:hidden'>
+                    <Tooltip text='Chat' position='bottom'>
+                        <Link href="/chat">
+                            <Notify 
+                                icon={<IoChatboxEllipsesOutline className="w-full h-full"/>} 
+                                activeIcon={<IoChatboxEllipses color={forestGreen} className="w-full h-full"/>} 
+                                counter={2}
+                            />
+                        </Link>
+                    </Tooltip>
+                </div>}
                 {isAuthenticated && <div className="md:flex gap-2 w-fit h-full items-center hidden">
+                <Tooltip text='Chat' position='bottom'>
+                    <Link href="/chat">
+                        <Notify 
+                            icon={<IoChatboxEllipsesOutline className="w-full h-full"/>} 
+                            activeIcon={<IoChatboxEllipses color={forestGreen} className="w-full h-full"/>} 
+                            counter={2}
+                        />
+                    </Link>
+                </Tooltip>
+                <Tooltip text='Mission' position='bottom'>
+                    <Link href="/mission">
+                        <Notify 
+                            icon={<IoTrophyOutline className="w-full h-full"/>} 
+                            activeIcon={<IoTrophy color={forestGreen} className="w-full h-full"/>} 
+                            counter={2}
+                        />
+                    </Link>
+                </Tooltip>
+
                     <div className="relative" ref={cartRef}>
                         <button 
                             onClick={handleCartClick}
                             className="flex items-center"
                         >
+                        <Tooltip text='Checkout' position='bottom'>
                             <Notify 
                                 icon={<IoBagHandleOutline className="w-full h-full"/>} 
                                 activeIcon={<IoBagHandle color={forestGreen} className="w-full h-full"/>} 
                                 counter={totalItems}
                             />
+                        </Tooltip>
                         </button>
                         
                         {isCartOpen && (
@@ -152,11 +184,13 @@ export const NavbarDashboard = () => {
                             onClick={handleTradeClick}
                             className="flex items-center"
                         >
+                        <Tooltip text='Trade' position='bottom'>
                             <Notify 
                                 icon={<AiOutlineSwap className="w-full h-full"/>} 
                                 activeIcon={<AiOutlineSwap color={forestGreen} className="w-full h-full"/>} 
                                 counter={TradeItems.length}
                             />
+                        </Tooltip>
                         </button>
                         
                         {isTradeOpen && (
@@ -214,13 +248,6 @@ export const NavbarDashboard = () => {
                         )}
                     </div>
                     {/* <Notify icon={<AiOutlineSwap className="w-full h-full"/>} activeIcon={<AiOutlineSwap color={forestGreen} className="w-full h-full"/>} counter={2}/> */}
-                    <Link href="/chat">
-                        <Notify 
-                            icon={<IoChatboxEllipsesOutline className="w-full h-full"/>} 
-                            activeIcon={<IoChatboxEllipses color={forestGreen} className="w-full h-full"/>} 
-                            counter={2}
-                        />
-                    </Link>
                     <ProfileDropdown/>
                 </div>}
             </header>

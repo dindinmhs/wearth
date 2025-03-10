@@ -21,7 +21,7 @@ export function BackButton({ fallbackHref = '/' }: BackButtonProps) {
     return (
         <button 
             onClick={handleBack}
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 group"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 group w-fit"
         >
             <IoArrowBack size={20} className="text-xl transition-transform group-hover:-translate-x-1" />
             <span className="font-medium text-lg">Back</span>

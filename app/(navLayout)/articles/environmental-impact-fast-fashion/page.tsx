@@ -34,7 +34,7 @@ export default function Page() {
       <NavbarDashboard />
       <main className="pb-16 bg-gray-50 min-h-screen">
         <div className="max-w-3xl mx-auto px-4">
-          <div className="pt-20 flex gap-2 md:flex-row flex-col md:items-center md:mb-6">
+          <div className="pt-20 flex gap-2 md:flex-row flex-col md:items-center mb-4 md:mb-6">
             <BackButton/>
             <span className="md:block hidden">/</span>
             <Breadcrumb 

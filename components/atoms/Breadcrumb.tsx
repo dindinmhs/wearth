@@ -12,7 +12,7 @@ interface BreadcrumbProps {
 
 export function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav className="flex items-center gap-1 text-gray-500 text-base md:text-lg">
+    <nav className="flex items-center gap-1 text-gray-500 text-xs md:text-base">
       {items.map((item, index) => (
         <div key={index} className="flex items-center">
           {index > 0 && <IoChevronForward className="" />}
@@ -25,7 +25,6 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
             </Link>
           ) : (
             <span className="text-gray-900 font-medium ml-1 truncate md:truncate-none">{item.label}</span>
-
           )}
         </div>
       ))}

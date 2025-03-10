@@ -9,19 +9,21 @@ export interface CartItem {
 
 export const CartItems: CartItem[] = [
   {
-    id: '1',
-    name: 'Eco-Friendly Water Bottle',
-    price: 250000,
+    id: "1",
+    name: "Woolrich Recycled Wool Sweater",
+    price: 799000,
     quantity: 2,
-    size: 'M',
-    image: '/images/products/Oversized.jpg'
+    size: "L",
+    image:
+      "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610173/sustyle/rbneuj8giodqk5bubog1.jpg",
   },
   {
-    id: '2',
-    name: 'Bamboo Utensil Set',
-    price: 150000,
+    id: "2",
+    name: "Everlane Sustainable Linen Shirt",
+    price: 499000,
     quantity: 1,
-    size: 'L',
-    image: '/images/products/Jeans.jpg'
-  }
+    size: "XL",
+    image:
+      "https://res.cloudinary.com/dokktqvdq/image/upload/v1741610173/sustyle/nv48r9ohgpdkyyfdfget.jpg",
+  },
 ];

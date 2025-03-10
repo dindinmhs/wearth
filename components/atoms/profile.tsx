@@ -5,8 +5,10 @@ import Link from "next/link";
 import { IoMdPerson } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
 import { DropDown } from "../molecules";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/useAuthStore";
+import { usePathname } from "next/navigation";
+import { Tooltip } from "./tooltip";
 
 interface Props {
     otherStyles? : string;
@@ -15,6 +17,12 @@ interface Props {
 }
 
 export const ProfileIcon = ({ otherStyles='w-12', type, src='https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg' } : Props) => {
+    const pathname = usePathname(); 
+    const pathSegment = pathname.split('/')[1];
+    const [isActive, setActive] = useState('')
+    useEffect(()=>{
+        setActive(pathSegment)
+    },[pathSegment])
     if (type === 'border') {
         return (
             <Image
@@ -27,15 +35,17 @@ export const ProfileIcon = ({ otherStyles='w-12', type, src='https://images.unsp
         )
     }
     return (
-        <div className="p-1 rounded-full hover:bg-gray-300 bg-transparent overflow-hidden h-12 aspect-square">
-            <Image
-                src={src}
-                className={`${otherStyles} rounded-full object-cover w-full h-full`}
-                width={200}
-                height={200}
-                alt="profile"
-            />
-        </div>
+        <Tooltip text="Profile" position="bottom">
+            <div className={`p-1 rounded-full ${isActive=='profile'?'bg-forest':'hover:bg-gray-300'} bg-transparent overflow-hidden h-12 aspect-square`}>
+                <Image
+                    src={src}
+                    className={`${otherStyles} rounded-full object-cover w-full h-full`}
+                    width={200}
+                    height={200}
+                    alt="profile"
+                />
+            </div>
+        </Tooltip>
     )
 }
 
@@ -56,7 +66,7 @@ export const ProfileDropdown = () => {
             </Link>
             <button onClick={handleLogout} className="flex w-full gap-2 hover:bg-gray-200 px-3 py-2 items-center">
                 <MdLogout color="red" size={25}/>
-                <p className="text-red-500">Keluar</p>
+                <p className="text-red-500">Sign Out</p>
             </button>
         </DropDown>
     )

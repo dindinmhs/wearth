@@ -16,7 +16,7 @@ export default function ProductDetail() {
       <main className="pb-16 w-11/12 mx-auto">
         <div className="container mx-auto">
           <div className="pt-24">
-            <BackButton href="/products" />
+            <BackButton href="/" />
             <Breadcrumb 
               items={[
                 { label: 'Home', href: '/' },

@@ -13,8 +13,8 @@ interface Props {
 export const Notify = ({ icon, counter, activeIcon } : Props) => {
     const [isHover, setHover] = useState(false)
     return (
-        <HoverEffect>
-            <div onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} className="relative">
+        <HoverEffect isHover={isHover} setHover={setHover}>
+            <div className="relative">
                 {isHover?activeIcon:icon}
                 <div className="w-5 aspect-square rounded-full bg-red-500 -top-1 -right-1 absolute text-white flex justify-center items-center text-xs">{`${counter}`}</div>
             </div>

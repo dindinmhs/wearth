@@ -50,7 +50,7 @@ export default function Chat() {
             // Chat List View
             <div className="h-[calc(100vh-64px)]">
               <div className="p-4 bg-white border-b">
-                <h2 className="text-xl font-semibold">Pesan</h2>
+                <h2 className="text-xl font-semibold">Messages</h2>
               </div>
               <div className="divide-y">
                 {ChatData.map((chat) => (

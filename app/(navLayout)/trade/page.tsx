@@ -3,23 +3,13 @@
 import { NavbarDashboard } from "@/components/organism";
 import { TradeItems } from "@/data/trade";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { IoLocationOutline, IoCallOutline, IoSwapHorizontalOutline } from "react-icons/io5";
 import { BsCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 import { FooterSection } from "@/components/organism/footer";
 
-interface TradeDetailProps {
-  params: {
-    id: string;
-  };
-}
+export default function TradeDetail() {
 
-export default function TradeDetail({ params }: TradeDetailProps) {
-  const trade = TradeItems.find((t) => t.id === params.id);
-
-  if (!trade) {
-    notFound();
-  }
+  const trade = TradeItems[0];
 
   return (
     <>

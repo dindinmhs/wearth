@@ -1,4 +1,5 @@
 'use client'
+import { useAuthStore } from "@/store/useAuthStore";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
@@ -13,7 +14,9 @@ export const Chip = ({
   type,
   counter,
   isLink,
-  className
+  className,
+  src,
+  setOpen
 }: {
   text: string;
   selected: boolean;
@@ -24,13 +27,22 @@ export const Chip = ({
   counter?: number;
   isLink?: boolean;
   className?: string;
+  src? : string;
+  setOpen? : Dispatch<SetStateAction<number|null>>
   onClick?: () => void;
 }) => {
+  const { isAuthenticated } = useAuthStore();
   const router = useRouter()
   const handleClick = () => { 
     if (isLink) {
-      setSelected(text.toLocaleLowerCase())
-      router.push(text.toLocaleLowerCase())
+      if(src) {
+        if (setOpen && !isAuthenticated && src != 'explore') {
+          setOpen(0)
+        } else {
+          setSelected(src)
+          router.push(src)
+        }
+      }
     } else {
       setSelected(text)
     }
@@ -73,8 +85,8 @@ export const Chip = ({
       >
         <div className="relative z-10">
           {selected ? iconActive : iconDefault}
-          {counter && counter > 0 && (
-            <div className="absolute -top-1 -right-1 min-w-4 h-4 px-1 flex items-center justify-center bg-red-500 text-white text-xs font-bold rounded-full">
+          {counter && counter > 0 && isAuthenticated && (
+            <div className="absolute -top-3 -right-3 min-w-4 h-4 px-1 flex items-center justify-center bg-red-500 text-white text-xs font-bold rounded-full">
               {counter > 9 ? '9+' : counter}
             </div>
           )}

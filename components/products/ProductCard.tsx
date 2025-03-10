@@ -1,7 +1,7 @@
 import { ProductType } from '@/types';
 import Image from 'next/image';
 
-export const ProductCard = ({ name, price, images, brand, condition, is3d, sizes }: ProductType) => {
+export const ProductCard = ({ name, price, images, brand, condition, is3d, size }: ProductType) => {
   return (
     <div className="overflow-hidden group cursor-pointer transition-all duration-300">
       <div className="relative h-48 w-full overflow-hidden rounded-lg">
@@ -28,7 +28,7 @@ export const ProductCard = ({ name, price, images, brand, condition, is3d, sizes
       </div>
       <div className="px-2 py-3">
         {brand && (
-          <p className="text-gray-500 text-sm mb-1">{`${sizes[0]} / ${brand}`}</p>
+          <p className="text-gray-500 text-sm mb-1">{`${size} / ${brand}`}</p>
         )}
         <h3 className="text-gray-900 font-medium mb-2 line-clamp-1">
           {name}

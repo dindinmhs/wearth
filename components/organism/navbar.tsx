@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Chip, Logo, Notify, ProfileDropdown } from "../atoms"
+import { Chip, Logo, Notify, ProfileDropdown, ProfileIcon } from "../atoms"
 import { SearchInput, SpringModal, DragCloseDrawer } from "../molecules"
 import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoCompass, IoCompassOutline, IoPerson, IoPersonOutline, IoTrophy, IoTrophyOutline } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
@@ -229,32 +229,44 @@ export const NavbarDashboard = () => {
 }
 
 export const NavbarMobile = () => {
+    const router = useRouter()
     const pathname = usePathname(); 
     const pathSegment = pathname.split('/')[1];
     const [selected, setSelected] = useState(pathSegment);
     const [open, setOpen] = useState<null|number>(null);
     const { isAuthenticated, login } = useAuthStore();
+    useEffect(()=>{
+        setSelected(pathSegment)
+    },[pathSegment])
     
     const tabs = [
         {
             title : 'Explore',
+            src : 'explore',
             iconDefault : <IoCompassOutline className="w-full h-full"/>,
-            iconActive : <IoCompass className="w-full h-full" color={forestGreen}/>
+            iconActive : <IoCompass className="w-full h-full" color={forestGreen}/>,
+            count : undefined,
         },
         {
             title : 'Shop',
+            src : 'checkout',
             iconDefault : <IoBagHandleOutline className="w-full h-full"/>,
-            iconActive : <IoBagHandle className="w-full h-full" color={forestGreen}/>
+            iconActive : <IoBagHandle className="w-full h-full" color={forestGreen}/>,
+            count : 3,
         },
         {
             title : 'Trade',
+            src : 'trade',
             iconDefault : <AiOutlineSwap className="w-full h-full"/>,
-            iconActive : <AiOutlineSwap className="w-full h-full" color={forestGreen}/>
+            iconActive : <AiOutlineSwap className="w-full h-full" color={forestGreen}/>,
+            count : 1,
         },
         {
             title : 'Mission',
+            src : 'mission',
             iconDefault : <IoTrophyOutline className="w-full h-full"/>,
-            iconActive : <IoTrophy className="w-full h-full" color={forestGreen}/>
+            iconActive : <IoTrophy className="w-full h-full" color={forestGreen}/>,
+            count : 2,
         },
     ];
     
@@ -265,21 +277,29 @@ export const NavbarMobile = () => {
     
     return (
         <>
-            <div className="flex sm:hidden fixed h-fit bottom-0 left-0 right-0 justify-around bg-white z-10 pt-2 pb-1 border-t border-gray-100 shadow-lg">
+            <div className="flex sm:hidden fixed h-fit bottom-0 left-0 right-0 justify-around bg-white z-10 pt-2 pb-1 border-t border-gray-100 shadow-lg items-center">
                 {tabs.map((tab) => (
                     <Chip
                     type="circle"
                     isLink
                     text={tab.title}
-                    selected={selected === tab.title.toLocaleLowerCase()}
+                    selected={selected === tab.src}
                     setSelected={setSelected}
                     key={tab.title}
                     iconActive={tab.iconActive}
                     iconDefault={tab.iconDefault}
+                    src={tab.src}
+                    setOpen={setOpen}
+                    counter={tab.count}
                     />
                 ))}
                 {isAuthenticated ? (
-                    <ProfileDropdown />
+                    <button onClick={()=>{
+                        setSelected('profile')
+                        router.push('/profile')
+                    }}>
+                        <ProfileIcon type="default"/>
+                    </button>
                 ) : (
                     <div onClick={() => setOpen(0)}>
                         <Chip

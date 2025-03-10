@@ -3,23 +3,11 @@
 import { NavbarDashboard } from "@/components/organism";
 import { TradeItems } from "@/data/trade";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { IoLocationOutline, IoCallOutline } from "react-icons/io5";
 import { BsCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 
-interface TradeDetailProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function TradeDetail({ params }: TradeDetailProps) {
-  const trade = TradeItems.find((t) => t.id === params.id);
-
-  if (!trade) {
-    notFound();
-  }
+export default function TradeDetail() {
 
   return (
     <>
@@ -32,15 +20,15 @@ export default function TradeDetail({ params }: TradeDetailProps) {
               <div className="lg:col-span-1">
                 <div className="relative h-[400px] rounded-xl overflow-hidden">
                   <Image
-                    src={trade.image}
-                    alt={trade.name}
+                    src={TradeItems[0].image}
+                    alt={TradeItems[0].name}
                     fill
                     className="object-cover"
                     priority
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-black bg-opacity-70 text-white text-sm px-4 py-2 rounded-full">
-                      {trade.category}
+                      {TradeItems[0].category}
                     </span>
                   </div>
                 </div>
@@ -49,12 +37,12 @@ export default function TradeDetail({ params }: TradeDetailProps) {
               <div className="lg:col-span-2 space-y-6">
                 <div>
                   <div className="flex justify-between items-start">
-                    <h1 className="text-2xl font-semibold">{trade.name}</h1>
+                    <h1 className="text-2xl font-semibold">{TradeItems[0].name}</h1>
                     <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-                      {trade.condition}
+                      {TradeItems[0].condition}
                     </span>
                   </div>
-                  <p className="text-gray-600 mt-4">{trade.description}</p>
+                  <p className="text-gray-600 mt-4">{TradeItems[0].description}</p>
                 </div>
 
                 {/* Owner Details */}
@@ -64,15 +52,15 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                     <div className="flex items-center gap-4">
                       <div className="relative w-16 h-16">
                         <Image
-                          src={trade.owner.avatar}
-                          alt={trade.owner.name}
+                          src={TradeItems[0].owner.avatar}
+                          alt={TradeItems[0].owner.name}
                           fill
                           className="object-cover rounded-full"
                         />
                       </div>
                       <div>
-                        <p className="text-lg font-medium">{trade.owner.name}</p>
-                        <p className="text-gray-600">Member since {trade.createdAt}</p>
+                        <p className="text-lg font-medium">{TradeItems[0].owner.name}</p>
+                        <p className="text-gray-600">Member since {TradeItems[0].createdAt}</p>
                       </div>
                     </div>
                   </div>
@@ -84,7 +72,7 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Phone Number</p>
-                        <p className="text-gray-700">{trade.owner.phone}</p>
+                        <p className="text-gray-700">{TradeItems[0].owner.phone}</p>
                       </div>
                     </div>
 
@@ -94,7 +82,7 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Email</p>
-                        <p className="text-gray-700">{trade.owner.email}</p>
+                        <p className="text-gray-700">{TradeItems[0].owner.email}</p>
                       </div>
                     </div>
 
@@ -104,7 +92,7 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Address</p>
-                        <p className="text-gray-700">{trade.owner.address}</p>
+                        <p className="text-gray-700">{TradeItems[0].owner.address}</p>
                       </div>
                     </div>
                   </div>
@@ -118,11 +106,11 @@ export default function TradeDetail({ params }: TradeDetailProps) {
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold">Trade Offer</h2>
               <span className={`px-4 py-1.5 rounded-full text-sm font-medium ${
-                trade.requestedItem.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                trade.requestedItem.status === 'accepted' ? 'bg-green-100 text-green-800' :
+                TradeItems[0].requestedItem.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                TradeItems[0].requestedItem.status === 'accepted' ? 'bg-green-100 text-green-800' :
                 'bg-red-100 text-red-800'
               }`}>
-                {trade.requestedItem.status.charAt(0).toUpperCase() + trade.requestedItem.status.slice(1)}
+                {TradeItems[0].requestedItem.status.charAt(0).toUpperCase() + TradeItems[0].requestedItem.status.slice(1)}
               </span>
             </div>
 
@@ -131,8 +119,8 @@ export default function TradeDetail({ params }: TradeDetailProps) {
               <div className="md:col-span-2">
                 <div className="relative h-[400px] rounded-xl overflow-hidden">
                   <Image
-                    src={trade.requestedItem.image}
-                    alt={trade.requestedItem.name}
+                    src={TradeItems[0].requestedItem.image}
+                    alt={TradeItems[0].requestedItem.name}
                     fill
                     className="object-cover"
                   />
@@ -142,9 +130,9 @@ export default function TradeDetail({ params }: TradeDetailProps) {
               {/* Right Column - Details */}
               <div className="md:col-span-3 space-y-6">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2">{trade.requestedItem.name}</h3>
+                  <h3 className="text-2xl font-semibold mb-2">{TradeItems[0].requestedItem.name}</h3>
                   <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-                    Condition: {trade.requestedItem.condition}
+                    Condition: {TradeItems[0].requestedItem.condition}
                   </span>
                 </div>
 
@@ -155,15 +143,15 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                     <div className="flex items-center gap-4">
                       <div className="relative w-16 h-16">
                         <Image
-                          src={trade.requestedItem.owner.avatar}
-                          alt={trade.requestedItem.owner.name}
+                          src={TradeItems[0].requestedItem.owner.avatar}
+                          alt={TradeItems[0].requestedItem.owner.name}
                           fill
                           className="object-cover rounded-full"
                         />
                       </div>
                       <div>
-                        <p className="text-lg font-medium">{trade.requestedItem.owner.name}</p>
-                        <p className="text-gray-600">{trade.requestedItem.owner.location}</p>
+                        <p className="text-lg font-medium">{TradeItems[0].requestedItem.owner.name}</p>
+                        <p className="text-gray-600">{TradeItems[0].requestedItem.owner.location}</p>
                       </div>
                     </div>
                   </div>
@@ -175,7 +163,7 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Phone Number</p>
-                        <p className="text-gray-700">{trade.requestedItem.owner.phone}</p>
+                        <p className="text-gray-700">{TradeItems[0].requestedItem.owner.phone}</p>
                       </div>
                     </div>
 
@@ -185,7 +173,7 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Email</p>
-                        <p className="text-gray-700">{trade.requestedItem.owner.email}</p>
+                        <p className="text-gray-700">{TradeItems[0].requestedItem.owner.email}</p>
                       </div>
                     </div>
 
@@ -195,14 +183,14 @@ export default function TradeDetail({ params }: TradeDetailProps) {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Address</p>
-                        <p className="text-gray-700">{trade.requestedItem.owner.address}</p>
+                        <p className="text-gray-700">{TradeItems[0].requestedItem.owner.address}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                {trade.requestedItem.status === 'pending' && (
+                {TradeItems[0].requestedItem.status === 'pending' && (
                   <div className="flex gap-4">
                     <button className="flex-1 flex items-center justify-center gap-2 py-4 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors text-lg font-medium">
                       <BsCheckCircleFill className="text-xl" />

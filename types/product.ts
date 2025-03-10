@@ -7,7 +7,12 @@ export interface ProductType {
     brand: string;
     description: string;
     features: string[];
-    sizes: string[]
+    size: string;
     condition? : string;
+    seller: {
+        name: string;
+        avatar: string;
+        joinDate: string;
+    },
     is3d? : true;
 }

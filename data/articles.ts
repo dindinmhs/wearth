@@ -4,6 +4,8 @@ export const Articles = [
     description: "How the fast fashion industry contributes to pollution, waste, and climate change.",
     image: "/images/articles/article1.jpg",
     date: "2024-01-15",
+    category: "Environment",
+    summary: "Fast fashion contributes significantly to global pollution and waste. Learn how your clothing choices impact the planet.",
     content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
 
     The primary driver of climate change is the emission of greenhouse gases, particularly carbon dioxide, from human activities. Industrial processes, deforestation, and the burning of fossil fuels contribute significantly to this environmental crisis. The effects are far-reaching, impacting everything from agriculture to coastal communities.
@@ -26,6 +28,8 @@ export const Articles = [
     description: "Exploring innovative eco-friendly fabrics and materials that are changing the clothing industry.",
     image: "/images/articles/article1.jpg",
     date: "2024-01-15",
+    category: "Innovation",
+    summary: "Discover the innovative materials reshaping fashion, from plant-based fabrics to recycled textiles.",
     content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
 
     The primary driver of climate change is the emission of greenhouse gases, particularly carbon dioxide, from human activities. Industrial processes, deforestation, and the burning of fossil fuels contribute significantly to this environmental crisis. The effects are far-reaching, impacting everything from agriculture to coastal communities.
@@ -48,6 +52,8 @@ export const Articles = [
     description: "How circular economy principles are being applied to create a more sustainable fashion industry.",
     image: "/images/articles/article1.jpg",
     date: "2024-01-15",
+    category: "Trends",
+    summary: "Circular fashion is transforming how we produce, use, and recycle clothing for a more sustainable future.",
     content: `Climate change is one of the most pressing issues of our time, affecting ecosystems and communities worldwide. As global temperatures continue to rise, we're witnessing unprecedented changes in weather patterns, rising sea levels, and the increasing frequency of extreme weather events.
 
     The primary driver of climate change is the emission of greenhouse gases, particularly carbon dioxide, from human activities. Industrial processes, deforestation, and the burning of fossil fuels contribute significantly to this environmental crisis. The effects are far-reaching, impacting everything from agriculture to coastal communities.
@@ -70,6 +76,8 @@ export const Articles = [
     description: "Practical tips for creating an eco-friendly wardrobe that reduces your fashion footprint.",
     image: "/images/articles/article2.jpg",
     date: "2024-01-14",
+    category: "Tips",
+    summary: "Simple steps to create an eco-friendly wardrobe that aligns with your values and reduces environmental impact.",
     content: `Living sustainably isn't just a trend – it's a necessary shift in how we approach our daily lives. As we face increasing environmental challenges, making conscious choices about how we live becomes more important than ever.
 
     Start with your home:
@@ -108,6 +116,8 @@ export const Articles = [
     description: "How conscious consumers can support brands that prioritize worker welfare and ethical production.",
     image: "/images/articles/article3.jpg",
     date: "2024-01-13",
+    category: "Ethics",
+    summary: "Support ethical fashion by choosing brands committed to fair wages, safe working conditions, and transparency.",
     content: `The future of energy is renewable, and the transformation is already underway. As technology advances and costs decrease, renewable energy sources are becoming increasingly viable alternatives to fossil fuels.
 
     Solar Power:

@@ -2,31 +2,13 @@
 import { DragSection, NavbarDashboard } from "@/components/organism";
 import { BackButton } from "@/components/atoms/BackButton";
 import { Breadcrumb } from "@/components/atoms/Breadcrumb";
+import { Products } from "@/data/products";
+import { FooterSection } from "@/components/organism/footer";
+import Image from "next/image";
 
 export default function ProductDetail() {
-  // Static product data
-  const product = {
-      id: '1',
-      name: 'Organic Cotton Oversized T-Shirt',
-      price: 299000,
-      images: [
-        '/images/products/Windbreaker.jpg',
-        'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879476/I_m_Just_Here_for_the_Fireworks_Graphic_Tee_-_White___3XL_wlbxm2.jpg',
-        'https://res.cloudinary.com/dokktqvdq/image/upload/v1740879483/Mens_Short_Sleeve_The_Wizard_of_Oz_Graphic_T-Shirt___Black___Regular_Medium___Shirts_Tops_Graphic_T-shirts_viv5wo.jpg'
-      ],
-      category: 'T-Shirts',
-      brand: 'EcoWear',
-      description: 'Made from 100% organic cotton, this oversized t-shirt combines comfort with sustainability. The breathable fabric ensures all-day comfort while minimizing environmental impact. Each piece is crafted using water-saving techniques and natural dyes.',
-      features: [
-        'Made from 100% organic cotton',
-        'Water-saving production process',
-        'Natural dye coloring',
-        'Zero plastic packaging',
-        'Fair trade certified'
-      ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      condition: 'New',
-    }
+  // Get product data from the Products array
+  const product = Products[0]; // First product for this example
 
   return (
     <>
@@ -52,31 +34,23 @@ export default function ProductDetail() {
               {product.brand && (
                 <span className="text-gray-500 text-sm md:text-lg">{product.brand}</span>
               )}
-              <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
+
+              <div className="flex items-center gap-3">
+                <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
+                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full self-start mt-2">
+                  {product.condition}
+                </span>
+              </div>
+              
               <div className="text-2xl font-bold text-gray-900">
                 Rp {product.price.toLocaleString("id-ID")}
               </div>
               
-              {/* Product Condition */}
-              <div className="flex items-center">
-                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                  {product.condition}
-                </span>
-              </div>
 
-              {/* Size Selection */}
-              <div>
-                <h3 className="text-lg font-medium text-gray-900">Select Size</h3>
-                <div className="flex flex-wrap gap-3 mt-2">
-                  {product.sizes.map((size) => (
-                    <button
-                      key={size}
-                      className="w-12 h-12 rounded-lg border border-gray-300 flex items-center justify-center text-gray-700 hover:border-green-500 hover:text-green-500 transition-colors"
-                    >
-                      {size}
-                    </button>
-                  ))}
-                </div>
+              {/* Size Display (Single) */}
+              <div className="flex items-center">
+                <span className="text-lg font-medium text-gray-900 mr-3">Size</span>
+                <span className="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-gray-700 font-medium">{product.size}</span>
               </div>
 
               {/* Add to Cart Button */}
@@ -106,10 +80,38 @@ export default function ProductDetail() {
                   ))}
                 </ul>
               </div>
+              
+              {/* Seller Information */}
+              <div className="border-t border-gray-200 mt-6 pt-6">
+                <div className="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+                    {product.seller.avatar ? (
+                      <Image 
+                        src={product.seller.avatar} 
+                        alt={product.seller.name} 
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-green-100 text-green-800 font-bold text-lg">
+                        {product.seller.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-medium">{product.seller.name}</div>
+                    <div className="text-sm text-gray-500">
+                      <span>Joined {product.seller.joinDate}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </main>
+      <FooterSection />
     </>
   );
 }

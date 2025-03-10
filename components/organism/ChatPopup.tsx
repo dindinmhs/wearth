@@ -6,28 +6,35 @@ import { userData } from "@/data/user";
 import Image from "next/image";
 import { IoSend } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export function ChatPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedChat, setSelectedChat] = useState<Chat | null>(ChatData[0]);
   const [newMessage, setNewMessage] = useState("");
+  const { isAuthenticated } = useAuthStore();
 
   const handleSendMessage = () => {
     if (!newMessage.trim() || !selectedChat) return;
     setNewMessage("");
   };
 
+  // Don't render anything if user is not authenticated
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return (
     <div className="hidden md:block fixed bottom-4 right-4 z-50">
-      {/* Chat Button */}
+      {/* Chat Button - Made larger */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 flex items-center gap-2 bg-white text-green-600 px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200"
+          className="fixed bottom-4 right-4 flex items-center gap-3 bg-white text-green-600 px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 border border-green-100"
         >
-          <span className="text-sm font-medium">Chat</span>
+          <span className="text-base font-medium">Chat</span>
           <svg 
-            className="w-5 h-5" 
+            className="w-6 h-6" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -55,7 +62,7 @@ export function ChatPopup() {
             </button>
           </div>
 
-          {/* Rest of the chat interface */}
+          {/* Rest of the chat interface remains unchanged */}
           <div className="flex-1 flex">
             {/* Chat List */}
             <div className="w-1/3 border-r flex flex-col">
@@ -121,7 +128,7 @@ export function ChatPopup() {
                         <div
                           className={`max-w-[70%] rounded-lg p-2 text-sm ${
                             message.sender === userData.name
-                              ? "bg-green-600 text-white"
+                              ? "bg-[#2c6e49] text-white"
                               : "bg-gray-100"
                           }`}
                         >
@@ -147,14 +154,14 @@ export function ChatPopup() {
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                         placeholder="Ketik pesan..."
-                        className="flex-1 px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="flex-1 px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2c6e49]"
                         onKeyPress={(e) => {
                           if (e.key === "Enter") handleSendMessage();
                         }}
                       />
                       <button
                         onClick={handleSendMessage}
-                        className="p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                        className="p-2 bg-[#2c6e49] text-white rounded-lg hover:bg-[#235539] transition-colors"
                       >
                         <IoSend className="text-lg" />
                       </button>

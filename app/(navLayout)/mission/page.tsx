@@ -21,19 +21,10 @@ export default function Mission() {
     return (
       <>
         <NavbarDashboard />
-        <main className="pt-20 pb-16 bg-grey min-h-screen">
-          <div className="max-w-6xl mx-auto px-4">
+        <main className="pt-16 md:pt-20 pb-16 bg-grey min-h-screen">
+          <div className="container mx-auto px-4 md:px-0">
             {/* Header Section with Background */}
-            <div className="relative rounded-3xl bg-gradient-to-r from-green-600 to-green-400 p-8 mb-10 text-white overflow-hidden shadow-xl">
-              <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-                <Image 
-                  src="/images/mission-pattern.png" 
-                  alt="Pattern" 
-                  width={256} 
-                  height={256}
-                  className="object-contain"
-                />
-              </div>
+            <div className="relative rounded-xl md:rounded-3xl bg-gradient-to-r from-[#2c6e49] to-[#3d9a68] p-6 md:p-8 mb-6 md:mb-10 text-white overflow-hidden shadow-xl">
               <div className="relative z-10">
                 <h1 className="text-3xl md:text-4xl font-bold mb-3">Mission Board</h1>
                 <p className="text-green-50 max-w-2xl">
@@ -55,14 +46,14 @@ export default function Mission() {
             
             {/* Progress Overview */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-100 flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                  <BsStars className="text-2xl text-green-600" />
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-[#c5e1d3] flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#edf5f0] flex items-center justify-center mb-4">
+                  <BsStars className="text-2xl text-[#2c6e49]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-1">12/20</h3>
                 <p className="text-sm text-gray-500">Missions Completed</p>
                 <div className="w-full bg-gray-100 rounded-full h-2 mt-4">
-                  <div className="h-2 rounded-full bg-green-500" style={{ width: '60%' }} />
+                  <div className="h-2 rounded-full bg-[#2c6e49]" style={{ width: '60%' }} />
                 </div>
               </div>
               
@@ -100,14 +91,14 @@ export default function Mission() {
             </div>
             
             {/* Mission Tabs */}
-            <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+            <div className="flex gap-2 mb-4 md:mb-6 overflow-x-auto pb-2">
               {["all", "in-progress", "completed", "not-started"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${
                     activeTab === tab
-                      ? 'bg-green-600 text-white'
+                      ? 'bg-[#2c6e49] text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -117,25 +108,25 @@ export default function Mission() {
                 </button>
               ))}
             </div>
-  {/* Missions Grid */}
-            <div className="grid grid-cols-1 gap-4 md:gap-6">
+  {/* Missions Grid - Updated to 2 items per row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
               {filteredMissions.map((mission) => (
                 <div 
                   key={mission.id} 
                   onClick={() => handleMissionAction(mission.id)}
-                  className="bg-white rounded-xl md:rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden relative group border border-gray-100 cursor-pointer hover:border-green-200"
+                  className="bg-white rounded-xl md:rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden relative group border border-gray-100 cursor-pointer hover:border-[#c5e1d3]"
                 >
                   <div className={`absolute top-0 left-0 w-1 h-full ${
-                    mission.status === 'completed' ? 'bg-green-600' : 
-                    mission.status === 'in-progress' ? 'bg-green-400' : 'bg-gray-200'
+                    mission.status === 'completed' ? 'bg-[#2c6e49]' : 
+                    mission.status === 'in-progress' ? 'bg-[#3d9a68]' : 'bg-gray-200'
                   }`}></div>
                   
                   <div className="flex flex-col md:flex-row gap-5">
                     {/* Left side with icon and reward */}
                     <div className="flex flex-row md:flex-col items-center md:items-center gap-4 md:w-28">
                       <div className={`w-16 h-16 rounded-md flex items-center justify-center ${
-                        mission.status === 'completed' ? 'bg-green-50' :
-                        mission.status === 'in-progress' ? 'bg-green-50' : 'bg-gray-50'
+                        mission.status === 'completed' ? 'bg-[#edf5f0]' :
+                        mission.status === 'in-progress' ? 'bg-[#edf5f0]' : 'bg-gray-50'
                       }`}>
                         <div className="relative w-10 h-10">
                           <Image
@@ -148,9 +139,9 @@ export default function Mission() {
                       </div>
                       
                       <div className="flex flex-col items-center">
-                        <div className="flex items-center gap-1.5 bg-green-50 px-3 py-1.5 rounded-md">
-                          <BsCoin className="text-green-700" />
-                          <span className="font-medium text-green-800">{mission.reward}</span>
+                        <div className="flex items-center gap-1.5 bg-[#edf5f0] px-3 py-1.5 rounded-md">
+                          <BsCoin className="text-[#2c6e49]" />
+                          <span className="font-medium text-[#2c6e49]">{mission.reward}</span>
                         </div>
                       </div>
                     </div>
@@ -163,9 +154,9 @@ export default function Mission() {
                             <h3 className="text-lg font-medium text-gray-800">{mission.title}</h3>
                             <div className={`px-2 py-0.5 rounded-md text-xs font-medium ${
                               mission.status === 'completed' 
-                                ? 'bg-green-50 text-green-700' 
+                                ? 'bg-[#edf5f0] text-[#2c6e49]' 
                                 : mission.status === 'in-progress'
-                                ? 'bg-green-50 text-green-700'
+                                ? 'bg-[#edf5f0] text-[#2c6e49]'
                                 : 'bg-gray-50 text-gray-500'
                             }`}>
                               {mission.status === 'completed' ? 'Completed' : 
@@ -187,9 +178,9 @@ export default function Mission() {
                           <div
                             className={`h-2 rounded-md transition-all duration-300 ${
                               mission.status === 'completed' 
-                                ? 'bg-green-600' 
+                                ? 'bg-[#2c6e49]' 
                                 : mission.status === 'in-progress'
-                                ? 'bg-green-400'
+                                ? 'bg-[#3d9a68]'
                                 : 'bg-gray-300'
                             }`}
                             style={{ width: `${(mission.progress / mission.target) * 100}%` }}
@@ -204,9 +195,9 @@ export default function Mission() {
                         </div>
                         <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${
                           mission.status === 'completed' 
-                            ? 'bg-green-100 text-green-700' 
+                            ? 'bg-[#edf5f0] text-[#2c6e49]' 
                             : mission.status === 'in-progress'
-                            ? 'bg-green-100 text-green-700'
+                            ? 'bg-[#edf5f0] text-[#2c6e49]'
                             : 'bg-gray-100 text-gray-500'
                         }`}>
                           {mission.status === 'completed' ? 'Claim' : 

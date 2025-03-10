@@ -146,14 +146,14 @@ export default function CheckoutPage() {
                   <MdOutlineLocalOffer className="text-xl text-[#2c6e49]" />
                   <h3 className="font-medium">Promo Code</h3>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <input 
                     type="text" 
                     placeholder="Enter promo code" 
-                    className="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2c6e49]"
+                    className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2c6e49]"
                     defaultValue="ECO5K"
                   />
-                  <button className="bg-[#2c6e49] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#235539] transition-colors">
+                  <button className="w-full sm:w-auto bg-[#2c6e49] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#235539] transition-colors">
                     Apply
                   </button>
                 </div>

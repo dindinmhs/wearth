@@ -30,13 +30,17 @@ const HomePage = () => {
             { threshold: 0.1 }
         );
         
-        if (impactSectionRef.current) {
-            observer.observe(impactSectionRef.current);
+        // Store the current value of the ref in a variable
+        const currentRef = impactSectionRef.current;
+        
+        if (currentRef) {
+            observer.observe(currentRef);
         }
         
         return () => {
-            if (impactSectionRef.current) {
-                observer.unobserve(impactSectionRef.current);
+            // Use the stored variable in the cleanup function
+            if (currentRef) {
+                observer.unobserve(currentRef);
             }
         };
     }, []);
@@ -89,7 +93,7 @@ const HomePage = () => {
                 <div className="container mx-auto">
                     <div className="mb-8">
                         <h3 className="text-2xl font-bold text-gray-900 mb-2">Trending Sustainable Styles</h3>
-                        <p className="text-gray-600">Find out what's popular right now. Discover the top sustainable fashion pieces that everyone's talking about.</p>
+                        <p className="text-gray-600">Find out whats popular right now. Discover the top sustainable fashion pieces that everyones talking about.</p>
                     </div>
                     
                     <div className="grid grid-cols-12 gap-4">

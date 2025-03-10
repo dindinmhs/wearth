@@ -159,7 +159,7 @@ export default function CheckoutPage() {
                 </div>
                 <div className="mt-2 text-sm text-[#2c6e49] flex items-center gap-1">
                   <BsShieldCheck />
-                  <span>Promo code "ECO5K" applied: Rp 5,000 discount</span>
+                  <span>Promo code &quot;ECO5K&quot; applied: Rp 5,000 discount</span>
                 </div>
               </section>
 

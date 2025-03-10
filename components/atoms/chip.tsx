@@ -85,7 +85,7 @@ export const Chip = ({
       >
         <div className="relative z-10">
           {selected ? iconActive : iconDefault}
-          {counter && counter > 0 && (
+          {counter && counter > 0 && isAuthenticated && (
             <div className="absolute -top-3 -right-3 min-w-4 h-4 px-1 flex items-center justify-center bg-red-500 text-white text-xs font-bold rounded-full">
               {counter > 9 ? '9+' : counter}
             </div>

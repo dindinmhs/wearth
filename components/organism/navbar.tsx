@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Chip, Logo, Notify, ProfileDropdown, ProfileIcon } from "../atoms"
+import { Chip, Logo, Notify, ProfileDropdown } from "../atoms"
 import { SearchInput, SpringModal, DragCloseDrawer } from "../molecules"
 import { IoBagHandle, IoBagHandleOutline, IoChatboxEllipses, IoChatboxEllipsesOutline, IoCompass, IoCompassOutline, IoPerson, IoPersonOutline, IoTrophy, IoTrophyOutline } from "react-icons/io5"
 import { AiOutlineSwap } from "react-icons/ai"
@@ -229,7 +229,6 @@ export const NavbarDashboard = () => {
 }
 
 export const NavbarMobile = () => {
-    const router = useRouter()
     const pathname = usePathname(); 
     const pathSegment = pathname.split('/')[1];
     const [selected, setSelected] = useState(pathSegment);
@@ -277,7 +276,7 @@ export const NavbarMobile = () => {
     
     return (
         <>
-            <div className="flex sm:hidden fixed h-fit bottom-0 left-0 right-0 justify-around bg-white z-10 pt-2 pb-1 border-t border-gray-100 shadow-lg items-center">
+            <div className="flex sm:hidden fixed h-fit bottom-0 left-0 right-0 justify-around bg-white z-20 pt-2 pb-1 border-t border-gray-100 shadow-lg items-center">
                 {tabs.map((tab) => (
                     <Chip
                     type="circle"
@@ -293,25 +292,17 @@ export const NavbarMobile = () => {
                     counter={tab.count}
                     />
                 ))}
-                {isAuthenticated ? (
-                    <button onClick={()=>{
-                        setSelected('profile')
-                        router.push('/profile')
-                    }}>
-                        <ProfileIcon type="default"/>
-                    </button>
-                ) : (
-                    <div onClick={() => setOpen(0)}>
-                        <Chip
-                            type="circle"
-                            text="Login"
-                            selected={false}
-                            setSelected={() => {}}
-                            iconDefault={<IoPersonOutline className="w-full h-full" />}
-                            iconActive={<IoPerson className="w-full h-full" color={forestGreen} />}
-                        />
-                    </div>
-                )}
+                <Chip
+                    type="circle"
+                    text={isAuthenticated?'Profile':'Login'}
+                    src={'profile'}
+                    setOpen={setOpen}
+                    isLink
+                    selected={selected === 'profile'}
+                    setSelected={setSelected}
+                    iconDefault={<IoPersonOutline className="w-full h-full" />}
+                    iconActive={<IoPerson className="w-full h-full" color={forestGreen} />}
+                />
             </div>
 
             <DragCloseDrawer open={open === 0} setOpen={setOpen}>

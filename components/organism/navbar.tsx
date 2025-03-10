@@ -210,28 +210,33 @@ export const NavbarDashboard = () => {
                                             <Link 
                                                 href={`/trade/${item.id}`} 
                                                 key={item.id} 
-                                                className="flex gap-4 p-3 border rounded-lg hover:border-green-600 transition-colors"
+                                                className="flex gap-4 p-3 border rounded-lg hover:border-[#2c6e49] hover:bg-[#f7faf8] transition-all duration-200"
                                             >
                                                 <div className="relative w-20 h-20 flex-shrink-0">
                                                     <Image
                                                         src={item.image}
                                                         alt={item.name}
                                                         fill
-                                                        className="object-cover rounded"
+                                                        className="object-cover rounded-md"
                                                     />
+                                                    <div className="absolute top-0 right-0 bg-[#2c6e49] text-white text-xs px-1.5 py-0.5 rounded-bl-md rounded-tr-md">
+                                                        {item.size}
+                                                    </div>
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h4 className="font-medium">{item.name}</h4>
-                                                    <p className="text-sm text-gray-500 mt-1">
-                                                        Condition: {item.condition}
-                                                    </p>
+                                                    <h4 className="font-medium text-gray-800">{item.name}</h4>
+                                                    <div className="flex items-center gap-2 mt-2">
+                                                        <span className="text-xs bg-[#edf5f0] text-[#2c6e49] px-2 py-0.5 rounded-md">
+                                                            {item.condition}
+                                                        </span>
+                                                    </div>
                                                     <div className="flex items-center gap-2 mt-2">
                                                         <div className="relative w-6 h-6">
                                                             <Image
                                                                 src={item.owner.avatar}
                                                                 alt={item.owner.name}
                                                                 fill
-                                                                className="object-cover rounded-full"
+                                                                className="object-cover rounded-full border border-[#edf5f0]"
                                                             />
                                                         </div>
                                                         <span className="text-sm text-gray-600">
@@ -239,9 +244,15 @@ export const NavbarDashboard = () => {
                                                         </span>
                                                     </div>
                                                 </div>
+                                                <div className="self-center">
+                                                    <div className="w-8 h-8 rounded-full bg-[#edf5f0] flex items-center justify-center">
+                                                        <svg className="w-4 h-4 text-[#2c6e49]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
                                             </Link>
                                         ))}
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -425,4 +436,3 @@ export const NavbarMobile = () => {
         </>
     );
 };
-

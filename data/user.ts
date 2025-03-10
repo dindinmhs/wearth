@@ -15,7 +15,7 @@ export interface UserItem {
   id: string;
   name: string;
   image: string;
-  category: string;
+  condition: string;
   brand: string;
   description: string;
   createdAt: string;
@@ -60,7 +60,7 @@ export const userData: {
       id: "s1",
       name: "Vintage Denim Jacket",
       image: "/images/products/Oversized.jpg",
-      category: "Fashion",
+      condition: "New",
       brand: "Levi's",
       description: "Classic vintage denim jacket with distressed details. Perfect for casual wear. Size M.",
       price: "Rp 350.000",
@@ -71,7 +71,7 @@ export const userData: {
       id: "s2",
       name: "Air Max 97",
       image: "/images/products/Oversized.jpg",
-      category: "Fashion",
+      condition: "Good",
       brand: "Nike",
       description: "Original Nike Air Max 97 in silver colorway. Only worn twice. Size 42.",
       price: "Rp 1.800.000",
@@ -82,7 +82,7 @@ export const userData: {
       id: "s3",
       name: "GG Marmont Belt",
       image: "/images/products/Oversized.jpg",
-      category: "Fashion",
+      condition: "Like New",
       brand: "Gucci",
       description: "Authentic Gucci GG Marmont belt in black leather. Width: 2cm. Length: 90cm.",
       price: "Rp 4.500.000",
